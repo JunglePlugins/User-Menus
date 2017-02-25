@@ -26,14 +26,18 @@
     function which_users() {
         var $this = $(this),
             $item = $this.parents('.menu-item'),
-            $roles = $item.find('.nav_item_options-roles');
+            $roles = $item.find('.nav_item_options-roles'),
+            $insert_button = $item.find('.jpum-user-codes');
 
         if ($this.val() === 'logged_in') {
             $roles.slideDown();
             $item.addClass('show-insert-button');
+            $insert_button.fadeOut(0).fadeIn();
         } else {
             $roles.slideUp();
-            $item.removeClass('show-insert-button');
+            $insert_button.fadeOut(function () {
+                $item.removeClass('show-insert-button');
+            });
         }
     }
 
