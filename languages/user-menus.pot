@@ -80,6 +80,30 @@ msgstr ""
 msgid "Choose which roles can see this link"
 msgstr ""
 
+#: includes/classes/admin/reviews.php:230
+msgid "Hi there! You've been using the User Menus plugin on your site for %s now - We hope it's been helpful. If you're enjoying the plugin, would you mind rating it 5-stars to help spread the word?"
+msgstr ""
+
+#: includes/classes/admin/reviews.php:235
+msgid "2 weeks"
+msgstr ""
+
+#: includes/classes/admin/reviews.php:243
+msgid "3 months"
+msgstr ""
+
+#: includes/classes/admin/reviews.php:396
+msgid "Ok, you deserve it"
+msgstr ""
+
+#: includes/classes/admin/reviews.php:401
+msgid "Nope, maybe later"
+msgstr ""
+
+#: includes/classes/admin/reviews.php:406
+msgid "I already did"
+msgstr ""
+
 #: includes/classes/importer/menu.php:97
 msgid "Import Nav Menus"
 msgstr ""
@@ -152,10 +176,10 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: user-menus.php:171
+#: user-menus.php:172
 msgid "The %4$s %1$s %5$s plugin requires %2$s version %3$s or greater."
 msgstr ""
 
-#: user-menus.php:173
+#: user-menus.php:174
 msgid "Plugin Activation Error"
 msgstr ""

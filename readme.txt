@@ -1,19 +1,16 @@
 === User Menus ===
 Contributors: jungleplugins, danieliser
-Author URI:  http://jungleplugins.com/
+Author URI:  https://jungleplugins.com/
 Plugin URI:  https://wordpress.org/plugins/user-menus/
-Donate link: http://jungleplugins.com/donate/
+Donate link: https://jungleplugins.com/donate/
 Tags: menu, menus, user-menu, logout, nav-menu, nav-menus, user, user-role, user-roles
 Requires at least: 3.6
-Tested up to: 4.6
-Stable tag: 1.0.0
+Tested up to: 4.7.2
+Stable tag: 1.1.0
 Minimum PHP: 5.3
 License: GNU Version 3 or Any Later Version
 
 Show/hide menu items to logged in users, logged out users or specific user roles. Display logged in user details in menu. Add a logout link to menu.
-
-
-
 
 
 == Description ==
@@ -34,6 +31,7 @@ User Menus allows you to do the following:
 * Display menu items to only logged out users
 * Display menu items to only logged in users
 * Display menu item to specific user roles
+* Show a logged in user’s {avatar} in a menu item
 * Show a logged in user’s {username} in a menu item
 * Show a logged in user’s {first_name} in a menu item
 * Show a logged in user’s {last_name} in a menu item
@@ -64,10 +62,6 @@ If you’d like to get updates on our plugin development work you can [subscribe
 
 [jungleplugins twitter]: https://twitter.com/jungleplugins/ "Jungle Plugins on Twitter"
 
-
-
-
-
 == Installation ==
 
 = Minimum Requirements =
@@ -85,8 +79,6 @@ If you need help getting started with User Menus please see [FAQs][faq page] whi
 
 
 [faq page]: https://wordpress.org/plugins/user-menus/faq/ "User Menus FAQ"
-
-
 
 
 == Frequently Asked Questions ==
@@ -107,13 +99,9 @@ If you get stuck, you can ask for help in the [User Menu Plugin Forum][support f
 Bugs can be reported either in our support forum or preferably on the [User Menu GitHub][github issues] repository (link to GitHub repo).
 
 
-
 [github issues]: https://github.com/jungleplugins/user-menus/issues "GitHub Issue tracker for User Menus by Jungle Plugins"
 
-[support forum]: http://wordpress.org/support/plugin/user-menus "User Menu Plugin Forum"
-
-
-
+[support forum]: https://wordpress.org/support/plugin/user-menus "User Menu Plugin Forum"
 
 
 == Screenshots ==
@@ -123,9 +111,13 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 3. Quickly insert login/logout links & choose where users will be taken afterwards.
 
 
-
-
-
 == Changelog ==
+
+= v1.1.0 =
+* Feature: Added ability to insert user avatar in menu items.
+* Improvement: Added accessibility enhancements to menu editor. Includes keyboard support, proper focus, tabbing & titles.
+* Improvement: Added proper labeling to the user code dropdown.
+* Tweak: Restyled user code insert elements to better resemble default WP admin.
+
 = v1.0.0 =
 * Initial Release

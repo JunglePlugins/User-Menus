@@ -132,6 +132,10 @@ class Menu_Settings {
 		return $roles;
 	}
 
+	/**
+	 * @param $menu_id
+	 * @param $item_id
+	 */
 	public static function save( $menu_id, $item_id ) {
 
 		$allowed_roles = static::allowed_user_roles();
