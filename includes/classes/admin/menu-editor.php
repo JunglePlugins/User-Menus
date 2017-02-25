@@ -151,10 +151,16 @@ class Menu_Editor {
 	public static function media_templates() { ?>
 		<script type="text/html" id="tmpl-jpum-user-codes">
 			<div class="jpum-user-codes">
-				<span class="dashicons dashicons-arrow-left" title="<?php _e( 'Insert User Menu Codes', 'user-menus' ); ?>"></span>
+				<button type="button" title="<?php _e( 'Insert User Menu Codes', 'user-menus' ); ?>">
+					<i class="dashicons dashicons-arrow-left"></i>
+				</button>
 				<ul>
 					<?php foreach ( Codes::valid_codes() as $code => $label ) : ?>
-						<li title="<?php echo $label; ?>" data-code="<?php echo $code; ?>"><?php echo $label; ?></li>
+						<li>
+							<a title="<?php echo $label; ?>" href="#" data-code="<?php echo $code; ?>">
+								<?php echo $label; ?>
+							</a>
+						</li>
 					<?php endforeach; ?>
 				</ul>
 			</div>

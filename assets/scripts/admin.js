@@ -40,13 +40,21 @@
         $('.jpum-user-codes').removeClass('open');
     }
 
-    function insert_user_code() {
+    function insert_user_code(event) {
         var $this = $(this),
             $input = $this.parents('p').find('input'),
             val = $input.val();
 
+        event.which = event.which || event.keyCode;
+
+        if (event.type === 'keypress' && event.keyCode !== 13 && event.keyCode !== 32 ) {
+            return;
+        }
+
         $input.val(val + "{" + $this.data('code') + "}");
         reset_user_codes();
+
+        event.preventDefault();
     }
 
     function append_user_codes() {
@@ -69,8 +77,8 @@
     $document
         .on('change', '.nav_item_options-redirect_type select', redirect_type)
         .on('change', '.nav_item_options-which_users select', which_users)
-        .on('click', '.jpum-user-codes > span', toggle_user_codes)
-        .on('click', '.jpum-user-codes li', insert_user_code)
+        .on('click', '.jpum-user-codes > button', toggle_user_codes)
+        .on('click keypress', '.jpum-user-codes li > a', insert_user_code)
         .on('click', reset_user_codes)
         .ready(refresh_all_items);
 

@@ -6,19 +6,33 @@
   right: 1px;
   bottom: 1px;
 
-  > span {
+  > button {
     border: 1px solid;
     border-radius: 2px;
     background-color: #23282d;
     color: #eee;
     text-align: center;
     cursor: pointer;
-    font-size: 20px;
-    height: 20px;
-    width: 20px;
+    font-size: 22px;
+    height: 22px;
+    width: 22px;
+    padding: 0;
+    outline: 0;
+    display: block;
+
+    &:focus {
+      border-color: #5b9dd9;
+      box-shadow: 0 0 2px rgba( 30, 140, 190, 0.8 );
+    }
+
+    .dashicons {
+      width: 20px;
+      height: 20px;
+      font-size: 20px;
+    }
   }
 
-  &:hover > span {
+  &:hover > button {
     background-color: #0073aa;
     color: #fff;
   }
@@ -35,16 +49,26 @@
     /*box-shadow: 1px 1px 5px -1px; */
 
     li {
-
       display: block;
-      padding: .5em;
       border-bottom: 1px dashed rgba(0, 0, 0, .25);
       background-color: #23282d;
-      color: #eee;
 
-      cursor: pointer;
-      line-height: 1;
-      white-space: nowrap;
+      > a {
+        color: #eee;
+        cursor: pointer;
+        line-height: 1;
+        white-space: nowrap;
+        text-decoration: none;
+        display: block;
+        padding: .5em;
+
+        &:focus {
+          color: #0073aa;
+          border: 0;
+          box-shadow: none;
+
+        }
+      }
 
       &:last-child {
         border-bottom: 0;
@@ -53,7 +77,7 @@
       &:hover {
         background-color: #0073aa;
 
-        > span {
+        > a {
           color: #fff;
 
         }
