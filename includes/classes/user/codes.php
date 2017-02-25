@@ -16,6 +16,7 @@ class Codes {
 	 */
 	public static function valid_codes() {
 		return array(
+			'avatar',
 			'first_name',
 			'last_name',
 			'username',

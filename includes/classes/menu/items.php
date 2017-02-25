@@ -132,6 +132,10 @@ class Items {
 
 				switch ( $string ) {
 
+					case 'avatar':
+						$replace = get_avatar( $current_user, 26 );
+						break;
+
 					case 'first_name':
 						$replace = $current_user->user_firstname;
 						break;
