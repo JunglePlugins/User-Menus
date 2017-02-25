@@ -31,7 +31,7 @@ User Menus allows you to do the following:
 * Display menu items to only logged out users
 * Display menu items to only logged in users
 * Display menu item to specific user roles
-* Show a logged in user’s {avatar} in a menu item
+* Show a logged in user’s {avatar} in a menu item with custom size option.
 * Show a logged in user’s {username} in a menu item
 * Show a logged in user’s {first_name} in a menu item
 * Show a logged in user’s {last_name} in a menu item
@@ -114,7 +114,7 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 == Changelog ==
 
 = v1.1.0 =
-* Feature: Added ability to insert user avatar in menu items.
+* Feature: Added ability to insert user avatar in menu items with size option to match your needs.
 * Improvement: Added accessibility enhancements to menu editor. Includes keyboard support, proper focus, tabbing & titles.
 * Improvement: Added proper labeling to the user code dropdown.
 * Tweak: Restyled user code insert elements to better resemble default WP admin.

@@ -6,9 +6,20 @@
             $url = $this.parents('.menu-item').find('.nav_item_options-redirect_url');
 
         if ($this.val() == 'custom') {
-            $url.show();
+            $url.slideDown();
         } else {
-            $url.hide();
+            $url.slideUp();
+        }
+    }
+
+    function avatar_check() {
+        var $label = $(this),
+            $size = $label.parents('.menu-item').find('.nav_item_options-avatar_size');
+
+        if ($label.val().indexOf('{avatar}') >= 0) {
+            $size.slideDown();
+        } else {
+            $size.slideUp();
         }
     }
 
@@ -17,11 +28,11 @@
             $item = $this.parents('.menu-item'),
             $roles = $item.find('.nav_item_options-roles');
 
-        if ($this.val() == 'logged_in') {
-            $roles.show();
+        if ($this.val() === 'logged_in') {
+            $roles.slideDown();
             $item.addClass('show-insert-button');
         } else {
-            $roles.hide();
+            $roles.slideUp();
             $item.removeClass('show-insert-button');
         }
     }
@@ -51,7 +62,7 @@
             return;
         }
 
-        $input.val(val + "{" + $this.data('code') + "}");
+        $input.val(val + "{" + $this.data('code') + "}").trigger('change');
         reset_user_codes();
 
         event.preventDefault();
@@ -72,11 +83,14 @@
         append_user_codes();
         $(".nav_item_options-redirect_type select").each(redirect_type);
         $('.nav_item_options-which_users select').each(which_users);
+        $('.nav_item_options-which_users select').each(which_users);
+        $('input.edit-menu-item-title').each(avatar_check);
     }
 
     $document
         .on('change', '.nav_item_options-redirect_type select', redirect_type)
         .on('change', '.nav_item_options-which_users select', which_users)
+        .on('change keyup focusout', 'input.edit-menu-item-title', avatar_check)
         .on('click', '.jpum-user-codes > button', toggle_user_codes)
         .on('click keypress', '.jpum-user-codes li > a', insert_user_code)
         .on('click', reset_user_codes)

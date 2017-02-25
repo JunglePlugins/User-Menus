@@ -36,6 +36,7 @@ class Item {
 		}
 
 		return wp_parse_args( $options, array(
+			'avatar_size'   => 24,
 			'redirect_type' => 'current',
 			'redirect_url'  => '',
 			'which_users'   => '',

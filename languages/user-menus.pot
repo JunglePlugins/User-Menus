@@ -40,43 +40,47 @@ msgstr ""
 msgid "Import nav menus and other menu item meta skipped by the default importer"
 msgstr ""
 
-#: includes/classes/admin/menu-settings.php:39
+#: includes/classes/admin/menu-settings.php:40
+msgid "Avatar Size"
+msgstr ""
+
+#: includes/classes/admin/menu-settings.php:55
 msgid "Current Page"
 msgstr ""
 
-#: includes/classes/admin/menu-settings.php:40
+#: includes/classes/admin/menu-settings.php:56
 msgid "Home Page"
 msgstr ""
 
-#: includes/classes/admin/menu-settings.php:41
+#: includes/classes/admin/menu-settings.php:57
 msgid "Custom URL"
 msgstr ""
 
-#: includes/classes/admin/menu-settings.php:48
+#: includes/classes/admin/menu-settings.php:64
 msgid "Where should users be taken afterwards?"
 msgstr ""
 
-#: includes/classes/admin/menu-settings.php:66
+#: includes/classes/admin/menu-settings.php:82
 msgid "Enter a url user should be redirected to"
 msgstr ""
 
-#: includes/classes/admin/menu-settings.php:77
+#: includes/classes/admin/menu-settings.php:93
 msgid "Everyone"
 msgstr ""
 
-#: includes/classes/admin/menu-settings.php:78
+#: includes/classes/admin/menu-settings.php:94
 msgid "Logged Out Users"
 msgstr ""
 
-#: includes/classes/admin/menu-settings.php:79
+#: includes/classes/admin/menu-settings.php:95
 msgid "Logged In Users"
 msgstr ""
 
-#: includes/classes/admin/menu-settings.php:86
+#: includes/classes/admin/menu-settings.php:102
 msgid "Who can see this link?"
 msgstr ""
 
-#: includes/classes/admin/menu-settings.php:102
+#: includes/classes/admin/menu-settings.php:118
 msgid "Choose which roles can see this link"
 msgstr ""
 
@@ -144,7 +148,7 @@ msgstr ""
 msgid "Have fun!"
 msgstr ""
 
-#: includes/classes/menu/items.php:39
+#: includes/classes/menu/items.php:43
 msgid "User Link"
 msgstr ""
 

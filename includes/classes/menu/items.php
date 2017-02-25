@@ -13,6 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Items {
 
+	private static $current_item;
+
 	/**
 	 * Init
 	 */
@@ -28,6 +30,8 @@ class Items {
 	 * @return mixed
 	 */
 	public static function merge_item_data( $item ) {
+
+		self::$current_item = $item;
 
 		// Merge Rules.
 		foreach ( Item::get_options( $item->ID ) as $key => $value ) {
@@ -133,7 +137,7 @@ class Items {
 				switch ( $string ) {
 
 					case 'avatar':
-						$replace = get_avatar( $current_user, 18 );
+						$replace = get_avatar( $current_user, self::$current_item->avatar_size );
 						break;
 
 					case 'first_name':
