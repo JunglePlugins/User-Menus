@@ -45,7 +45,7 @@
             $input = $this.parents('p').find('input'),
             val = $input.val();
 
-        $input.val(val + "{" + $this.text() + "}");
+        $input.val(val + "{" + $this.data('code') + "}");
         reset_user_codes();
     }
 
@@ -70,7 +70,7 @@
         .on('change', '.nav_item_options-redirect_type select', redirect_type)
         .on('change', '.nav_item_options-which_users select', which_users)
         .on('click', '.jpum-user-codes > span', toggle_user_codes)
-        .on('click', '.jpum-user-codes li > span', insert_user_code)
+        .on('click', '.jpum-user-codes li', insert_user_code)
         .on('click', reset_user_codes)
         .ready(refresh_all_items);
 

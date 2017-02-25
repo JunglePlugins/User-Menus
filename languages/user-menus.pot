@@ -1,4 +1,4 @@
-# Copyright (C) 2016 user-menus
+# Copyright (C) 2017 user-menus
 # This file is distributed under the same license as the user-menus package.
 msgid ""
 msgstr ""
@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Language-Team: Daniel Iser <danieliser@wizardinternetsolutions.com>\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -122,6 +122,34 @@ msgstr ""
 
 #: includes/classes/menu/items.php:39
 msgid "User Link"
+msgstr ""
+
+#: includes/classes/user/codes.php:19
+msgid "Avatar"
+msgstr ""
+
+#: includes/classes/user/codes.php:20
+msgid "First Name"
+msgstr ""
+
+#: includes/classes/user/codes.php:21
+msgid "Last Name"
+msgstr ""
+
+#: includes/classes/user/codes.php:22
+msgid "Username"
+msgstr ""
+
+#: includes/classes/user/codes.php:23
+msgid "Display Name"
+msgstr ""
+
+#: includes/classes/user/codes.php:24
+msgid "Nickname"
+msgstr ""
+
+#: includes/classes/user/codes.php:25
+msgid "Email"
 msgstr ""
 
 #: user-menus.php:171

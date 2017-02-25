@@ -124,7 +124,7 @@ class Items {
 
 		foreach ( $matches as $string ) {
 
-			if ( $current_user->ID == 0 && in_array( $string, Codes::valid_codes() ) ) {
+			if ( $current_user->ID == 0 || ! array_key_exists( $string, Codes::valid_codes() ) ) {
 
 				$replace = '';
 
@@ -133,7 +133,7 @@ class Items {
 				switch ( $string ) {
 
 					case 'avatar':
-						$replace = get_avatar( $current_user, 26 );
+						$replace = get_avatar( $current_user, 18 );
 						break;
 
 					case 'first_name':

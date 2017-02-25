@@ -153,8 +153,8 @@ class Menu_Editor {
 			<div class="jpum-user-codes">
 				<span class="dashicons dashicons-arrow-left" title="<?php _e( 'Insert User Menu Codes', 'user-menus' ); ?>"></span>
 				<ul>
-					<?php foreach( Codes::valid_codes() as $code ) : ?>
-						<li><span><?php echo $code; ?></span></li>
+					<?php foreach ( Codes::valid_codes() as $code => $label ) : ?>
+						<li title="<?php echo $label; ?>" data-code="<?php echo $code; ?>"><?php echo $label; ?></li>
 					<?php endforeach; ?>
 				</ul>
 			</div>
