@@ -33,7 +33,7 @@ class Walker_Nav_Menu_Edit_Custom_Fields extends Walker_Nav_Menu_Edit {
 	public function start_el( &$output, $item, $depth = 0, $args = array() ) {
 		parent::start_el( $output, $item, $depth, $args );
 
-		$output = preg_replace( '/(<p[^>]+class="[^"]*field-description(.|\n)*?<\/p>)/', "$1 \n" . $this->get_custom_fields( $item, $depth, $args ), $output );
+		$output = preg_replace( '(<p[^>]+class="[^"]*field-description(.|\n)*?<\/p>)', "$1 \n" . $this->get_custom_fields( $item, $depth, $args ), $output, 1 );
 	}
 
 	/**
