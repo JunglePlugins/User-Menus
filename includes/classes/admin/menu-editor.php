@@ -28,15 +28,19 @@ class Menu_Editor {
 	public static function nav_menu_walker( $walker ) {
 		global $wp_version;
 
-		if ( version_compare( $wp_version, '4.5.0', '>=' ) ) {
-			require_once \JP_User_Menus::$DIR . 'includes/classes/walker/nav-menu-edit.php';
-
-			return '\JP\UM\Walker\Nav_Menu_Edit';
-		} else {
-			require_once \JP_User_Menus::$DIR . 'includes/classes/walker/nav-menu-edit-deprecated.php';
-
-			return '\JP\UM\Walker\Nav_Menu_Edit_Deprecated';
+		if ( $walker == 'Walker_Nav_Menu_Edit_Custom_Fields' ) {
+			return $walker;
 		}
+
+		if ( ! class_exists( 'Walker_Nav_Menu_Edit_Custom_Fields' ) ) {
+			if ( version_compare( $wp_version, '3.6', '>=' ) ) {
+				require_once \JP_User_Menus::$DIR . 'includes/classes/walker/nav-menu-edit-custom-fields.php';
+			} else {
+				require_once \JP_User_Menus::$DIR . 'includes/classes/walker/nav-menu-edit-custom-fields-deprecated.php';
+			}
+		}
+
+		return 'Walker_Nav_Menu_Edit_Custom_Fields';
 	}
 
 
