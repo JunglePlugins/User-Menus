@@ -419,10 +419,12 @@ class Reviews {
 	 * @return bool
 	 */
 	public static function hide_notices() {
+		$code = self::get_trigger_code();
+
 		$conditions = array(
 			self::already_did(),
 			self::last_dismissed() && strtotime( self::last_dismissed() . ' +2 weeks' ) > time(),
-			empty( self::get_trigger_code() ),
+			empty( $code ),
 		);
 
 		return in_array( true, $conditions );
