@@ -3,7 +3,7 @@
  * Plugin Name: User Menus
  * Plugin URI: https://wordpress.org/plugins/user-menus/
  * Description: Quickly customize & extend your menus with user based functionality.
- * Version: 1.1.0
+ * Version: 1.1.2
  * Author: Jungle Plugins
  * Author URI: https://jungleplugins.com/
  * Text Domain: user-menus
@@ -37,7 +37,7 @@ class JP_User_Menus {
 	/**
 	 * @var string
 	 */
-	public static $VER = '1.1.0';
+	public static $VER = '1.1.2';
 
 	/**
 	 * @var string

@@ -5,8 +5,8 @@ Plugin URI:  https://wordpress.org/plugins/user-menus/
 Donate link: https://jungleplugins.com/donate/
 Tags: menu, menus, user-menu, logout, nav-menu, nav-menus, user, user-role, user-roles
 Requires at least: 3.6
-Tested up to: 4.7.2
-Stable tag: 1.1.0
+Tested up to: 4.7.3
+Stable tag: 1.1.2
 Minimum PHP: 5.3
 License: GNU Version 3 or Any Later Version
 
@@ -113,8 +113,11 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 
 == Changelog ==
 
+= v1.1.2 =
+* Improvement: Made changes to the nav menu editor to make it more compatible with other plugins.
+
 = v1.1.1 =
-* Updated nav menu walker to be more compatible with other plugins.
+* Fix: Forgot to add new files during commit. Correcting this issue.
 
 = v1.1.0 =
 * Feature: Added ability to insert user avatar in menu items with size option to match your needs.
