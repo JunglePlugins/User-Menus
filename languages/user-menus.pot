@@ -16,19 +16,19 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n\n"
 
-#: includes/classes/admin/menu-editor.php:47
+#: includes/classes/admin/menu-editor.php:55
 msgid "User Links"
 msgstr ""
 
-#: includes/classes/admin/menu-editor.php:59
+#: includes/classes/admin/menu-editor.php:67
 msgid "Login"
 msgstr ""
 
-#: includes/classes/admin/menu-editor.php:63
+#: includes/classes/admin/menu-editor.php:71
 msgid "Logout"
 msgstr ""
 
-#: includes/classes/admin/menu-editor.php:154
+#: includes/classes/admin/menu-editor.php:162
 msgid "Insert User Menu Codes"
 msgstr ""
 
