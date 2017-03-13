@@ -113,6 +113,9 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 
 == Changelog ==
 
+= v1.1.1 =
+* Updated nav menu walker to be more compatible with other plugins.
+
 = v1.1.0 =
 * Feature: Added ability to insert user avatar in menu items with size option to match your needs.
 * Improvement: Added accessibility enhancements to menu editor. Includes keyboard support, proper focus, tabbing & titles.

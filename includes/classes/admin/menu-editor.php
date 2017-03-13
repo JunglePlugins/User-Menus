@@ -17,7 +17,7 @@ class Menu_Editor {
 	 * Init
 	 */
 	public static function init() {
-		add_filter( 'wp_edit_nav_menu_walker', array( __CLASS__, 'nav_menu_walker' ) );
+		add_filter( 'wp_edit_nav_menu_walker', array( __CLASS__, 'nav_menu_walker' ), 999999999 );
 		add_action( 'admin_head-nav-menus.php', array( __CLASS__, 'register_metaboxes' ) );
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_scripts' ) );
 	}
@@ -27,6 +27,10 @@ class Menu_Editor {
 	 */
 	public static function nav_menu_walker( $walker ) {
 		global $wp_version;
+
+		if ( doing_filter( 'plugins_loaded' ) ) {
+			return $walker;
+		}
 
 		if ( $walker == 'Walker_Nav_Menu_Edit_Custom_Fields' ) {
 			return $walker;
