@@ -186,7 +186,7 @@ class JP_User_Menus {
 	}
 
 	/**
-	 * Get the template path.
+	 * Get the templates path.
 	 * @return string
 	 */
 	public function template_path() {

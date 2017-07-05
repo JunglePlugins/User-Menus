@@ -1,4 +1,4 @@
-=== User Menus ===
+=== User Menus - Nav Menu Visibility ===
 Contributors: jungleplugins, danieliser
 Author URI:  https://jungleplugins.com/
 Plugin URI:  https://wordpress.org/plugins/user-menus/
