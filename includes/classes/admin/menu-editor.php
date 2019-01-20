@@ -149,8 +149,8 @@ class Menu_Editor {
 		// Use minified libraries if SCRIPT_DEBUG is turned off
 		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-		wp_enqueue_script( 'jpum-scripts', \JP_User_Menus::$URL . 'assets/scripts/admin' . $suffix . '.js', array( 'jquery', 'underscore' ), \JP_User_Menus::$VER, true );
-		wp_enqueue_style( 'jpum-styles', \JP_User_Menus::$URL . 'assets/styles/admin' . $suffix . '.css', array( 'dashicons' ), \JP_User_Menus::$VER );
+		wp_enqueue_script( 'jpum-scripts', \JP_User_Menus::$URL . 'assets/js/admin-general' . $suffix . '.js', array( 'jquery', 'underscore' ), \JP_User_Menus::$VER, true );
+		wp_enqueue_style( 'jpum-styles', \JP_User_Menus::$URL . 'assets/css/admin-general' . $suffix . '.css', array( 'dashicons' ), \JP_User_Menus::$VER );
 	}
 
 	/**
