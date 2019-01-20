@@ -1,18 +1,20 @@
 <?php
 /**
- * Plugin Name: User Menus
- * Plugin URI: https://wordpress.org/plugins/user-menus/
- * Description: Quickly customize & extend your menus with user based functionality.
- * Version: 1.1.2
- * Author: Jungle Plugins
- * Author URI: https://jungleplugins.com/
- * Text Domain: user-menus
+ * Plugin Name:  User Menus
+ * Plugin URI:   https://wordpress.org/plugins/user-menus/
+ * Description:  Quickly customize your menus with a user's name & avatar, or show items based on user role.
+ * Version:      1.1.3
+ * Author:       Jungle Plugins
+ * Author URI:   https://jungleplugins.com/
+ * License:      GPL2 or later
+ * License URI:  https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:  user-menus
  *
  * Minimum PHP: 5.3
  * Minimum WP: 3.6
  *
  * @author      Daniel Iser
- * @copyright   Copyright (c) 2016, Jungle Plugins
+ * @copyright   Copyright (c) 2019, Code Atlantic LLC
  * @since       1.0.0
  *
  * Prior Work Credits. Big thanks to the following:
@@ -37,7 +39,7 @@ class JP_User_Menus {
 	/**
 	 * @var string
 	 */
-	public static $VER = '1.1.2';
+	public static $VER = '1.1.3';
 
 	/**
 	 * @var string
@@ -100,9 +102,7 @@ class JP_User_Menus {
 	/**
 	 * Setup plugin constants
 	 *
-	 * @access      private
 	 * @since       1.0.0
-	 * @return      void
 	 */
 	private function setup_constants() {
 		self::$DIR  = self::$instance->plugin_path();
@@ -113,9 +113,7 @@ class JP_User_Menus {
 	/**
 	 * Include necessary files
 	 *
-	 * @access      private
 	 * @since       1.0.0
-	 * @return      void
 	 */
 	private function includes() {
 		// Menu Items
@@ -177,28 +175,10 @@ class JP_User_Menus {
 	/**
 	 * Internationalization
 	 *
-	 * @access      public
 	 * @since       1.0.0
-	 * @return      void
 	 */
 	public function load_textdomain() {
 		load_plugin_textdomain( 'user-menus' );
-	}
-
-	/**
-	 * Get the templates path.
-	 * @return string
-	 */
-	public function template_path() {
-		return apply_filters( 'jpum_template_path', self::$TEMPLATE_PATH );
-	}
-
-	/**
-	 * Get Ajax URL.
-	 * @return string
-	 */
-	public function ajax_url() {
-		return admin_url( 'admin-ajax.php', 'relative' );
 	}
 
 }

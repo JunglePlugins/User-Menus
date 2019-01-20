@@ -19,7 +19,9 @@ if ( ! defined( 'IMPORT_DEBUG' ) ) {
 }
 
 // Load Importer API
-require_once ABSPATH . 'wp-admin/includes/import.php';
+if ( ! function_exists( 'get_importers' ) ) {
+	require_once ABSPATH . 'wp-admin/includes/import.php';
+}
 
 if ( ! class_exists( 'WP_Importer' ) ) {
 	require_once ABSPATH . 'wp-admin/includes/class-wp-importer.php';

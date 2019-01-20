@@ -5,9 +5,9 @@ Plugin URI:  https://wordpress.org/plugins/user-menus/
 Donate link: https://jungleplugins.com/donate/
 Tags: menu, menus, user-menu, logout, nav-menu, nav-menus, user, user-role, user-roles
 Requires at least: 3.6
-Tested up to: 4.7.3
-Stable tag: 1.1.2
-Minimum PHP: 5.3
+Tested up to: 5.1
+Stable tag: 1.1.3
+Requires PHP: 5.3
 License: GNU Version 3 or Any Later Version
 
 Show/hide menu items to logged in users, logged out users or specific user roles. Display logged in user details in menu. Add a logout link to menu.
@@ -40,6 +40,8 @@ User Menus allows you to do the following:
 * Show a logged in user’s {email} in a menu item
 * Add a logout link to menu (optional redirect settings)
 * Add a login link to menu (optional redirect settings)
+
+** Includes a custom Menu Importer that will allow migrating User Menus data with the normal menu export/import.
 
 = Created by Jungle Plugins =
 
@@ -112,6 +114,9 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 
 
 == Changelog ==
+
+= v1.1.3 =
+* Improvement: Corrected usage of get_avatar to ensure compatibility with 3rd party avatar plugins.
 
 = v1.1.2 =
 * Improvement: Made changes to the nav menu editor to make it more compatible with other plugins.
