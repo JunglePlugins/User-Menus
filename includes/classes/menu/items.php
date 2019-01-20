@@ -144,7 +144,7 @@ class Items {
 				switch ( $string ) {
 
 					case 'avatar':
-						$replace = get_avatar( $current_user, self::$current_item->avatar_size );
+						$replace = get_avatar( $current_user->ID, self::$current_item->avatar_size );
 						break;
 
 					case 'first_name':
