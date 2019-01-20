@@ -85,7 +85,7 @@
 
     function refresh_all_items() {
         append_user_codes();
-        $(".nav_item_options-redirect_type select").each(redirect_type);
+        $('.nav_item_options-redirect_type select').each(redirect_type);
         $('.nav_item_options-which_users select').each(which_users);
         $('.nav_item_options-which_users select').each(which_users);
         $('input.edit-menu-item-title').each(avatar_check);
@@ -98,6 +98,7 @@
         .on('click', '.jpum-user-codes > button', toggle_user_codes)
         .on('click keypress', '.jpum-user-codes li > a', insert_user_code)
         .on('click', reset_user_codes)
+        .on('menu-item-added', refresh_all_items)
         .ready(refresh_all_items);
 
     // Add click event directly to submit buttons to prevent being prevented by default action.
