@@ -376,18 +376,7 @@ class Reviews {
 				<strong>
 					<?php echo $trigger['message']; ?>
 					<br />
-					<?php
-
-					$names = array(
-						'<a target="_blank" href="https://twitter.com/danieliser" title="Follow Daniel on Twitter">@danieliser</a>',
-						'<a target="_blank" href="https://twitter.com/calumallison" title="Follow Calum on Twitter">@calumallison</a>',
-					);
-
-					shuffle( $names );
-
-					echo '~ ' . implode( ' & ', $names );
-
-					?>
+					~<a target="_blank" href="https://twitter.com/danieliser" title="Follow Daniel on Twitter">@danieliser</a>
 				</strong>
 			</p>
 			<ul>

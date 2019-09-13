@@ -4,8 +4,8 @@
  * Plugin URI:   https://wordpress.org/plugins/user-menus/
  * Description:  Quickly customize your menus with a user's name & avatar, or show items based on user role.
  * Version:      1.1.3
- * Author:       Jungle Plugins
- * Author URI:   https://jungleplugins.com/
+ * Author:       Code Atlantic
+ * Author URI:   https://code-atlantic.com/
  * License:      GPL2 or later
  * License URI:  https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:  user-menus
