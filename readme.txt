@@ -1,6 +1,6 @@
 === User Menus - Nav Menu Visibility ===
 Contributors: jungleplugins, danieliser
-Author URI:  https://jungleplugins.com/
+Author URI:  https://code-atlantic.com
 Plugin URI:  https://wordpress.org/plugins/user-menus/
 Donate link: https://jungleplugins.com/donate/
 Tags: menu, menus, user-menu, logout, nav-menu, nav-menus, user, user-role, user-roles
