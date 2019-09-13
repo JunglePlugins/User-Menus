@@ -73,8 +73,6 @@
     }
 
     function append_user_codes() {
-        debugger;
-
         return $('input.edit-menu-item-title').each(function () {
             var $this = $(this).parents('label'),
                 template = _.template($('#tmpl-jpum-user-codes').html());
