@@ -15,11 +15,11 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: user-menus.php:172
+#: user-menus.php:170
 msgid "The %4$s %1$s %5$s plugin requires %2$s version %3$s or greater."
 msgstr ""
 
-#: user-menus.php:174
+#: user-menus.php:172
 msgid "Plugin Activation Error"
 msgstr ""
 
@@ -115,43 +115,43 @@ msgstr ""
 msgid "I already did"
 msgstr ""
 
-#: includes/classes/importer/menu.php:97
+#: includes/classes/importer/menu.php:99
 msgid "Import Nav Menus"
 msgstr ""
 
-#: includes/classes/importer/menu.php:104
+#: includes/classes/importer/menu.php:106
 msgid "A new version of this importer is available. Please update to version %s to ensure compatibility with newer export files."
 msgstr ""
 
-#: includes/classes/importer/menu.php:114
+#: includes/classes/importer/menu.php:116
 msgid "Upload your WordPress export (WXR) file and import the Nav Menus and any meta for the Nav Menu items."
 msgstr ""
 
-#: includes/classes/importer/menu.php:115
+#: includes/classes/importer/menu.php:117
 msgid "Choose a WXR (.xml) file to upload, then click Upload file and import."
 msgstr ""
 
-#: includes/classes/importer/menu.php:130, includes/classes/importer/menu.php:135, includes/classes/importer/menu.php:145, includes/classes/importer/menu.php:206, includes/classes/importer/menu.php:217
+#: includes/classes/importer/menu.php:132, includes/classes/importer/menu.php:137, includes/classes/importer/menu.php:147, includes/classes/importer/menu.php:208, includes/classes/importer/menu.php:219
 msgid "Sorry, there has been an error."
 msgstr ""
 
-#: includes/classes/importer/menu.php:136
+#: includes/classes/importer/menu.php:138
 msgid "The export file could not be found at <code>%s</code>. It is likely that this was caused by a permissions problem."
 msgstr ""
 
-#: includes/classes/importer/menu.php:154
+#: includes/classes/importer/menu.php:156
 msgid "This WXR file (version %s) may not be supported by this version of the importer. Please consider updating."
 msgstr ""
 
-#: includes/classes/importer/menu.php:207
+#: includes/classes/importer/menu.php:209
 msgid "The file does not exist, please try again."
 msgstr ""
 
-#: includes/classes/importer/menu.php:278
+#: includes/classes/importer/menu.php:280
 msgid "All done."
 msgstr ""
 
-#: includes/classes/importer/menu.php:278
+#: includes/classes/importer/menu.php:280
 msgid "Have fun!"
 msgstr ""
 

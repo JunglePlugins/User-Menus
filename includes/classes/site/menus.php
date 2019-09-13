@@ -43,33 +43,35 @@ class Menus {
 				$exclude = $logged_in;
 			} else {
 
-				switch ( $item->which_users ) {
+				if ( is_object( $item ) && isset( $item->which_users ) ) {
+					switch ( $item->which_users ) {
 
-					case 'logged_in':
-						if ( ! $logged_in ) {
-							$exclude = true;
-						} elseif ( ! empty( $item->roles ) ) {
+						case 'logged_in':
+							if ( ! $logged_in ) {
+								$exclude = true;
+							} elseif ( ! empty( $item->roles ) ) {
 
-							// Checks all roles, should not exclude if any are active.
-							$valid_role = false;
+								// Checks all roles, should not exclude if any are active.
+								$valid_role = false;
 
-							foreach ( $item->roles as $role ) {
-								if ( current_user_can( $role ) ) {
-									$valid_role = true;
-									break;
+								foreach ( $item->roles as $role ) {
+									if ( current_user_can( $role ) ) {
+										$valid_role = true;
+										break;
+									}
+								}
+
+								if ( ! $valid_role ) {
+									$exclude = true;
 								}
 							}
+							break;
 
-							if ( ! $valid_role ) {
-								$exclude = true;
-							}
-						}
-						break;
+						case 'logged_out':
+							$exclude = $logged_in;
+							break;
 
-					case 'logged_out':
-						$exclude = $logged_in;
-						break;
-
+					}
 				}
 
 			}
