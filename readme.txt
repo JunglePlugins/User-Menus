@@ -2,7 +2,6 @@
 Contributors: jungleplugins, danieliser
 Author URI:  https://code-atlantic.com
 Plugin URI:  https://wordpress.org/plugins/user-menus/
-Donate link: https://jungleplugins.com/donate/
 Tags: menu, menus, user-menu, logout, nav-menu, nav-menus, user, user-role, user-roles
 Requires at least: 3.6
 Tested up to: 5.1
@@ -15,7 +14,7 @@ Show/hide menu items to logged in users, logged out users or specific user roles
 
 == Description ==
 
-User Menus by [Jungle Plugins][jungleplugins] is the perfect plugin for websites which have logged in users.
+User Menus is the perfect plugin for websites which have logged in users.
 
 The plugin gives you more control over your nav menu by allowing you to apply visibility controls to menu items e.g who can see each menu item (everyone, logged out users, logged in users, specific user roles).
 
@@ -43,26 +42,21 @@ User Menus allows you to do the following:
 
 ** Includes a custom Menu Importer that will allow migrating User Menus data with the normal menu export/import.
 
-= Created by Jungle Plugins =
+= Created by Code Atlantic =
 
-User Menus is built by the [Jungle Plugins][jungleplugins] team. Our mission is to make building membership & community websites easy with WordPress.
+User Menus is built by the [Code Atlantic][codeatlantic] team. We create high-quality WordPress plugins that help you grow your WordPress sites.
 
-Whilst User Menus is currently our only plugin, we will be releasing several free & paid plugins over the coming months which will provide the following functionality:
-
-* Forums
-* Front-end Posting
-* User Role Creation and Editing
-* Content Restriction
-
-If you’d like to get updates on our plugin development work you can [subscribe to our mailing list][jungleplugins subscribe] and/or follow us on [Twitter][jungleplugins twitter].
+Check out some of our most popular plugins:
+* [Popup Maker][popupmaker] - #1 Popup & Marketing Plugin for WordPress
+* [Ahoy][ahoy] - Automated Marketing Messages for WordPress
 
 **Requires WordPress 3.6 and PHP 5.3**
 
-[jungleplugins]: https://jungleplugins.com/ "Jungle Plugins - WordPress User Communities Made Easy"
+[codeatlantic]: https://code-atlantic.com "Code Atlantic - High Quality WordPress Plugins"
 
-[jungleplugins subscribe]: https://jungleplugins.com/subscribe/ "Jungle Plugins Newsletter"
+[popupmaker]: https://wppopupmaker.com "#1 Popup & Marketing Plugin for WordPress"
 
-[jungleplugins twitter]: https://twitter.com/jungleplugins/ "Jungle Plugins on Twitter"
+[ahoy]: https://useahoy.com "Automated Marketing Messages for WordPress"
 
 == Installation ==
 
