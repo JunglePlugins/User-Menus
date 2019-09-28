@@ -14,13 +14,15 @@ To use this plugin, this repo can be downloaded as a zip and installed as-is as 
 In order to run our Gulp tasks, you will need Node.js and NPM installed. To do so, you can [follow the NPM documentation's guide](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 If you have not used NPM before, you can [refer to this beginner's guide to NPM](https://www.sitepoint.com/beginners-guide-node-package-manager/).
 
-This plugin uses a series of Gulp tasks to clean and prepare builds. To get started, run `npm install` to get the necessary gulp dependencies.
+This plugin uses a series of [Gulp](https://gulpjs.com) tasks to clean and prepare builds. To get started, run `npm install` to get the necessary gulp dependencies.
 
 #### Gulp Tasks
-Coming soon....
+As normal, we have our gulp tasks in the gulpfile.js file.
+
+Task info coming soon....
 
 ## Built With
-* SASS - The CSS pre-processor we use
+* [SASS](https://sass-lang.com) - The CSS pre-processor we use. We use the SCSS syntax.
 
 ## Deployment
 This is a WordPress plugin that is hosted on the WordPress.org SVN repo.
