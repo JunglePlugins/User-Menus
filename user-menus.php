@@ -26,6 +26,41 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+if ( ! function_exists( 'um_fs' ) ) {
+    // Create a helper function for easy SDK access.
+    function um_fs() {
+        global $um_fs;
+
+        if ( ! isset( $um_fs ) ) {
+            // Include Freemius SDK.
+            require_once dirname(__FILE__) . '/freemius/start.php';
+
+            $um_fs = fs_dynamic_init( array(
+                'id'                  => '3637',
+                'slug'                => 'user-menus',
+                'type'                => 'plugin',
+                'public_key'          => 'pk_367ac2d0a38c35ef2a78d161fed88',
+                'is_premium'          => false,
+                'has_addons'          => false,
+                'has_paid_plans'      => false,
+                'menu'                => array(
+                    'first-path'     => 'plugins.php',
+                    'account'        => false,
+                    'contact'        => false,
+                    'support'        => false,
+                ),
+            ) );
+        }
+
+        return $um_fs;
+    }
+
+    // Init Freemius.
+    um_fs();
+    // Signal that SDK was initiated.
+    do_action( 'um_fs_loaded' );
+}
+
 /**
  * Class JP_User_Menus
  */
