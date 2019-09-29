@@ -34,8 +34,8 @@ function langpack() {
         .pipe($fn.wpPot({
             domain: pkg.name,
             package: pkg.description,
-            bugReport: 'https://wppopupmaker.com/support/',
-            team: 'WP Popup Maker <support@wppopupmaker.com>'
+            bugReport: 'https://wordpress.org/support/plugin/user-menus/',
+            team: 'Code Atlantic <support@code-atlantic.com>'
         }))
         .pipe(gulp.dest('languages/' + pkg.name + '.pot'));
 }
