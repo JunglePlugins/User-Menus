@@ -3,11 +3,11 @@ Contributors: jungleplugins, danieliser
 Author URI:  https://code-atlantic.com
 Plugin URI:  https://wordpress.org/plugins/user-menus/
 Tags: menu, menus, user-menu, logout, nav-menu, nav-menus, user, user-role, user-roles
-Requires at least: 3.6
-Tested up to: 5.1
-Stable tag: 1.1.3
+Requires at least: 4.6
+Tested up to: 5.2.3
+Stable tag: 1.2.0
 Requires PHP: 5.3
-License: GNU Version 3 or Any Later Version
+License: GPLv3 or Any Later Version
 
 Show/hide menu items to logged in users, logged out users or specific user roles. Display logged in user details in menu. Add a logout link to menu.
 
@@ -108,6 +108,11 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 
 
 == Changelog ==
+
+= v1.2.0 (Sept 30, 2019) =
+* Tweak: Updates brand from Jungle Plugins to Code Atlantic
+* Tweak: Minor text and design changes
+* Improvement: Adds Freemius integration to allow for future premium offerings
 
 = v1.1.3 =
 * Improvement: Corrected usage of get_avatar to ensure compatibility with 3rd party avatar plugins.
