@@ -110,9 +110,10 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 == Changelog ==
 
 = v1.2.0 (Sept 30, 2019) =
-* Tweak: Updates brand from Jungle Plugins to Code Atlantic
-* Tweak: Minor text and design changes
-* Improvement: Adds Freemius integration to allow for future premium offerings
+* Feature: Added option to *show* or *hide* the menu item for chosen roles.
+* Improvement: Added Freemius integration to allow for future premium offerings
+* Tweak: Updates brand from Jungle Plugins to Code Atlantic (nothing has changed, just the name).
+* Tweak: Minor text and design changes.
 
 = v1.1.3 =
 * Improvement: Corrected usage of get_avatar to ensure compatibility with 3rd party avatar plugins.

@@ -40,6 +40,7 @@ class Item {
 			'redirect_type' => 'current',
 			'redirect_url'  => '',
 			'which_users'   => '',
+			'can_see'       => 'yes',
 			'roles'         => array(),
 		) );
 	}

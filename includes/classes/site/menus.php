@@ -51,17 +51,28 @@ class Menus {
 								$exclude = true;
 							} elseif ( ! empty( $item->roles ) ) {
 
-								// Checks all roles, should not exclude if any are active.
-								$valid_role = false;
+								/**
+								 * If yes
+								 * - this value will be true
+								 * - $allowed_by_role will be set to false by default, allowing only matched roles to see it.
+								 * - if any matching role is found, $allowed_by_role will be set to true.
+								 *
+								 * If no
+								 * - this value will be false.
+								 * - $allowed_by_role will be set to true by default, allowing all not-matched roles to see it.
+								 * - if any matching role is found, $allowed_by_role will be set to false.
+								 */
+								$can_see = 'yes' === $item->can_see;
+								$allowed_by_role = !$can_see;
 
 								foreach ( $item->roles as $role ) {
 									if ( current_user_can( $role ) ) {
-										$valid_role = true;
+										$allowed_by_role = $can_see;
 										break;
 									}
 								}
 
-								if ( ! $valid_role ) {
+								if ( ! $allowed_by_role ) {
 									$exclude = true;
 								}
 							}

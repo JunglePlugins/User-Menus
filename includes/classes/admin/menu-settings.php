@@ -113,13 +113,26 @@ class Menu_Settings {
 
 			</p>
 
+			<p class="nav_item_options-can_see  description  description-wide">
+
+				<label>
+					<input type="radio" name="jp_nav_item_options[<?php echo $item->ID; ?>][can_see]" value="yes" <?php checked( $item->can_see, 'yes' ); ?>/>
+					<?php _e( 'Choose which roles can see this link', 'user-menus' ); ?>
+				</label>
+
+				<br />
+
+				<label>
+					<input type="radio" name="jp_nav_item_options[<?php echo $item->ID; ?>][can_see]" value="no" <?php checked( $item->can_see, 'no' ); ?>/>
+					<?php _e( 'Choose which roles won\'t see this link', 'user-menus' ); ?>
+				</label>
+
+			</p>
+
 			<p class="nav_item_options-roles  description  description-wide">
 
-				<?php _e( 'Choose which roles can see this link', 'user-menus' ); ?><br />
-
 				<?php foreach ( $allowed_user_roles as $option => $label ) : ?>
-					<label>
-						<input type="checkbox" name="jp_nav_item_options[<?php echo $item->ID; ?>][roles][]" value="<?php echo $option; ?>" <?php checked( in_array( $option, $item->roles ), true ); ?>/>
+					<label> <input type="checkbox" name="jp_nav_item_options[<?php echo $item->ID; ?>][roles][]" value="<?php echo $option; ?>" <?php checked( in_array( $option, $item->roles ), true ); ?>/>
 						<?php echo esc_html( $label ); ?>
 					</label>
 				<?php endforeach; ?>
