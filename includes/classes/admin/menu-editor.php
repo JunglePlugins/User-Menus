@@ -67,6 +67,10 @@ class Menu_Editor {
 				'title'  => __( 'Login', 'user-menus' ),
 			),
 			array(
+				'object' => 'register',
+				'title'  => __( 'Register', 'user-menus' ),
+			),
+			array(
 				'object' => 'logout',
 				'title'  => __( 'Logout', 'user-menus' ),
 			),

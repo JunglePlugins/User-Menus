@@ -38,7 +38,7 @@ class Items {
 			$item->$key = $value;
 		}
 
-		if ( in_array( $item->object, array( 'login', 'logout' ) ) ) {
+		if ( in_array( $item->object, array( 'login', 'register', 'logout' ) ) ) {
 
 			$item->type_label = __( 'User Link', 'user-menus' );
 
@@ -60,7 +60,19 @@ class Items {
 					break;
 			}
 
-			$item->url = $item->object == 'logout' ? wp_logout_url( $redirect ) : wp_login_url( $redirect );
+			switch ( $item->object ) {
+				case 'login':
+					$item->url = wp_login_url( $redirect );
+					break;
+
+				case 'register':
+					$item->url = add_query_arg( array( 'redirect_to' => $redirect ), wp_registration_url() );
+					break;
+
+				case 'logout':
+					$item->url = wp_logout_url( $redirect );
+					break;
+			}
 
 		}
 

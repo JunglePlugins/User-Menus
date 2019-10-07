@@ -49,7 +49,7 @@ class Menu_Settings {
 		<?php
 
 
-		if ( in_array( $item->object, array( 'login', 'logout' ) ) ) :
+		if ( in_array( $item->object, array( 'login', 'register', 'logout' ) ) ) :
 
 			$redirect_types = array(
 				'current' => __( 'Current Page', 'user-menus' ),

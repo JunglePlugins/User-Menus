@@ -37,9 +37,9 @@ class Menus {
 
 			$exclude = in_array( $item->menu_item_parent, $excluded );
 
-			if ( $item->object == 'logout' ) {
+			if ( 'logout' == $item->object ) {
 				$exclude = ! $logged_in;
-			} elseif ( $item->object == 'login' ) {
+			} elseif ( 'login' == $item->object || 'register' == $item->object ) {
 				$exclude = $logged_in;
 			} else {
 

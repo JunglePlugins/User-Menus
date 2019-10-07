@@ -15,7 +15,6 @@
  *
  * @author      Daniel Iser
  * @copyright   Copyright (c) 2019, Code Atlantic LLC
- * @since       1.0.0
  *
  * Prior Work Credits. Big thanks to the following:
  * - No Conflict Nav Menu Walker (Modified) - Nav Menu Roles @helgatheviking
@@ -57,6 +56,7 @@ if ( ! function_exists( 'um_fs' ) ) {
 
     // Init Freemius.
     um_fs();
+
     // Signal that SDK was initiated.
     do_action( 'um_fs_loaded' );
 }
