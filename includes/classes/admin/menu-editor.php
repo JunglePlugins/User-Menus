@@ -67,8 +67,9 @@ class Menu_Editor {
 				'title'  => __( 'Login', 'user-menus' ),
 			),
 			array(
-				'object' => 'register',
-				'title'  => __( 'Register', 'user-menus' ),
+				'object'  => 'register',
+				'title'   => __( 'Register', 'user-menus' ),
+				'classes' => array( 'disabled' ),
 			),
 			array(
 				'object' => 'logout',
@@ -114,7 +115,17 @@ class Menu_Editor {
 
 		<div id="user-menus-div" class="user-menus">
 			<div id="tabs-panel-user-menus-all" class="tabs-panel tabs-panel-active">
-				<ul id="user-menus-checklist-all" class="categorychecklist form-no-clear">
+
+				<?php $registration_disabled = '1' !== get_option( 'users_can_register' ); ?>
+
+				<?php if ( $registration_disabled ) : ?>
+				<small>
+					<span class="dashicons dashicons-info"></span>
+					<?php printf( __( 'Registration is %scurrently disabled%s on your site.', 'popup-maker' ), '<a href="' . admin_url( 'options-general.php' ) . '">', '</a>' ) ; ?>
+				</small>
+				<?php endif; ?>
+
+				<ul id="user-menus-checklist-all" class="categorychecklist form-no-clear <?php echo $registration_disabled ? 'user-menus-registration-disabled' : ''; ?>">
 					<?php echo walk_nav_menu_tree( array_map( 'wp_setup_nav_menu_item', $link_types ), 0, (object) array( 'walker' => $walker ) ); ?>
 				</ul>
 
@@ -131,8 +142,7 @@ class Menu_Editor {
 					<span class="add-to-menu">
 						<input type="submit"<?php wp_nav_menu_disabled_check( $nav_menu_selected_id ); ?> class="button-secondary submit-add-to-menu right" value="<?php esc_attr_e( 'Add to Menu' ); ?>" name="add-user-menus-menu-item" id="submit-user-menus-div" />
 						<span class="spinner"></span>
-					</span>
-				</p>
+					</span> </p>
 			</div>
 		</div>
 

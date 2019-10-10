@@ -1,6 +1,15 @@
 (function ($, $document) {
     "use strict";
 
+    function disable_register_menu_item() {
+        var $disabled = $('.user-menus-registration-disabled');
+
+        if ($disabled.length) {
+            $disabled.find('li:eq(1) input[type="checkbox"]').attr('disabled', true);
+        }
+    }
+
+
     function redirect_type() {
         var $this = $(this),
             $url = $this.parents('.menu-item').find('.nav_item_options-redirect_url');
@@ -26,14 +35,17 @@
     function which_users() {
         var $this = $(this),
             $item = $this.parents('.menu-item'),
+            $can_see = $item.find('.nav_item_options-can_see'),
             $roles = $item.find('.nav_item_options-roles'),
             $insert_button = $item.find('.jpum-user-codes');
 
         if ($this.val() === 'logged_in') {
+            $can_see.slideDown();
             $roles.slideDown();
             $item.addClass('show-insert-button');
             $insert_button.fadeOut(0).fadeIn();
         } else {
+            $can_see.slideUp();
             $roles.slideUp();
             $insert_button.fadeOut(function () {
                 $item.removeClass('show-insert-button');
@@ -41,11 +53,9 @@
         }
     }
 
-
     function toggle_user_codes() {
         $(this).parent().toggleClass('open');
     }
-
 
     function reset_user_codes(e) {
         if (e !== undefined && $(e.target).parents('.jpum-user-codes').length) {
@@ -62,7 +72,7 @@
 
         event.which = event.which || event.keyCode;
 
-        if (event.type === 'keypress' && event.keyCode !== 13 && event.keyCode !== 32 ) {
+        if (event.type === 'keypress' && event.keyCode !== 13 && event.keyCode !== 32) {
             return;
         }
 
@@ -99,7 +109,8 @@
         .on('click keypress', '.jpum-user-codes li > a', insert_user_code)
         .on('click', reset_user_codes)
         .on('menu-item-added', refresh_all_items)
-        .ready(refresh_all_items);
+        .ready(refresh_all_items)
+        .ready(disable_register_menu_item);
 
     // Add click event directly to submit buttons to prevent being prevented by default action.
     $('.submit-add-to-menu').click(function () {
