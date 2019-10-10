@@ -109,7 +109,7 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 
 == Changelog ==
 
-= v1.2.0 - 10/??/2019 =
+= v1.2.0 - 10/10/2019 =
 * Feature: Added option to *show* or *hide* the menu item for chosen roles.
 * Feature: Added Register user link navigation menu type with optional redirect.
 * Improvement: Added Freemius integration to allow for future premium offerings

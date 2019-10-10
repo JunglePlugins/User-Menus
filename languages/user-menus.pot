@@ -15,6 +15,14 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: user-menus.php:205
+msgid "The %4$s %1$s %5$s plugin requires %2$s version %3$s or greater."
+msgstr ""
+
+#: user-menus.php:207
+msgid "Plugin Activation Error"
+msgstr ""
+
 #: includes/classes/admin/menu-editor.php:55
 msgid "User Links"
 msgstr ""
@@ -24,10 +32,14 @@ msgid "Login"
 msgstr ""
 
 #: includes/classes/admin/menu-editor.php:71
+msgid "Register"
+msgstr ""
+
+#: includes/classes/admin/menu-editor.php:76
 msgid "Logout"
 msgstr ""
 
-#: includes/classes/admin/menu-editor.php:162
+#: includes/classes/admin/menu-editor.php:176
 msgid "Insert User Menu Codes"
 msgstr ""
 
@@ -79,8 +91,12 @@ msgstr ""
 msgid "Who can see this link?"
 msgstr ""
 
-#: includes/classes/admin/menu-settings.php:118
+#: includes/classes/admin/menu-settings.php:120
 msgid "Choose which roles can see this link"
+msgstr ""
+
+#: includes/classes/admin/menu-settings.php:127
+msgid "Choose which roles won't see this link"
 msgstr ""
 
 #: includes/classes/admin/reviews.php:230
@@ -177,12 +193,4 @@ msgstr ""
 
 #: includes/classes/user/codes.php:25
 msgid "Email"
-msgstr ""
-
-#: user-menus.php:205
-msgid "The %4$s %1$s %5$s plugin requires %2$s version %3$s or greater."
-msgstr ""
-
-#: user-menus.php:207
-msgid "Plugin Activation Error"
 msgstr ""
