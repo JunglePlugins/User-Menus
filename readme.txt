@@ -1,5 +1,5 @@
 === User Menus - Nav Menu Visibility ===
-Contributors: jungleplugins, danieliser
+Contributors: codeatlantic, danieliser
 Author URI:  https://code-atlantic.com
 Plugin URI:  https://wordpress.org/plugins/user-menus/
 Tags: menu, menus, user-menu, logout, nav-menu, nav-menus, user, user-role, user-roles
@@ -29,7 +29,7 @@ User Menus allows you to do the following:
 * Display menu items to everyone
 * Display menu items to only logged out users
 * Display menu items to only logged in users
-* Display menu item to specific user roles
+* Display menu item to users with or without a specific user role.
 * Show a logged in user’s {avatar} in a menu item with custom size option.
 * Show a logged in user’s {username} in a menu item
 * Show a logged in user’s {first_name} in a menu item
@@ -38,6 +38,7 @@ User Menus allows you to do the following:
 * Show a logged in user’s nickname} in a menu item
 * Show a logged in user’s {email} in a menu item
 * Add a logout link to menu (optional redirect settings)
+* Add a register link to menu (optional redirect settings)
 * Add a login link to menu (optional redirect settings)
 
 ** Includes a custom Menu Importer that will allow migrating User Menus data with the normal menu export/import.
