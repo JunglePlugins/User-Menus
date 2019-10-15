@@ -20,7 +20,7 @@ The plugin gives you more control over your nav menu by allowing you to apply vi
 
 It also enables you to display logged in user information in the navigation menu e.g “Hello, John Doe”.
 
-Lastly, the plugin allows you to add a login and logout link to your menu.
+Lastly, the plugin allows you to add login, register, and logout links to your menu.
 
 = Full Feature List =
 
@@ -48,8 +48,10 @@ User Menus allows you to do the following:
 User Menus is built by the [Code Atlantic][codeatlantic] team. We create high-quality WordPress plugins that help you grow your WordPress sites.
 
 Check out some of our most popular plugins:
+
 * [Popup Maker][popupmaker] - #1 Popup & Marketing Plugin for WordPress
 * [Ahoy][ahoy] - Automated Marketing Messages for WordPress
+* [Content Control][contentcontrol] - Restrict Access to Pages and Posts
 
 **Requires WordPress 3.6 and PHP 5.3**
 
@@ -58,6 +60,8 @@ Check out some of our most popular plugins:
 [popupmaker]: https://wppopupmaker.com "#1 Popup & Marketing Plugin for WordPress"
 
 [ahoy]: https://useahoy.com "Automated Marketing Messages for WordPress"
+
+[contentcontrol]: https://wordpress.org/plugins/content-control/ "Control Who Can Access Content"
 
 == Installation ==
 
