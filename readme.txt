@@ -1,7 +1,8 @@
 === User Menus - Nav Menu Visibility ===
 Contributors: codeatlantic, danieliser
-Author URI:  https://code-atlantic.com
+Author URI:  https://code-atlantic.com/
 Plugin URI:  https://wordpress.org/plugins/user-menus/
+Donate link: https://code-atlantic.com/donate/
 Tags: menu, menus, user-menu, logout, nav-menu, nav-menus, user, user-role, user-roles
 Requires at least: 4.6
 Tested up to: 5.2.3
@@ -109,6 +110,9 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 
 
 == Changelog ==
+
+= v1.2.1 - TBD =
+* Fix: Bug in some sites where Menu Editor Description field was not shown.
 
 = v1.2.0 - 10/10/2019 =
 * Feature: Added option to *show* or *hide* the menu item for chosen roles.
