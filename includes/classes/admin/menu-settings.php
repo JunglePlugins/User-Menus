@@ -48,6 +48,11 @@ class Menu_Settings {
 
 		<?php
 
+		$which_users_options = array(
+			''           => __( 'Everyone', 'user-menus' ),
+			'logged_out' => __( 'Logged Out Users', 'user-menus' ),
+			'logged_in'  => __( 'Logged In Users', 'user-menus' ),
+		);
 
 		if ( in_array( $item->object, array( 'login', 'register', 'logout' ) ) ) :
 
@@ -87,13 +92,29 @@ class Menu_Settings {
 
 			</p>
 
-		<?php else:
+			<p class="nav_item_options-which_users  description  description-wide">
 
-			$which_users_options = array(
-				''           => __( 'Everyone', 'user-menus' ),
-				'logged_out' => __( 'Logged Out Users', 'user-menus' ),
-				'logged_in'  => __( 'Logged In Users', 'user-menus' ),
-			); ?>
+				<label for="jp_nav_item_options-which_users-<?php echo $item->ID; ?>">
+
+					<?php _e( 'Who can see this link?', 'user-menus' ); ?>
+
+				</label>
+
+				<select n id="jp_nav_item_options-which_users-<?php echo $item->ID; ?>" class="widefat" disabled="disabled">
+					<option>
+						<?php
+						if('logout' == $item->object) {
+							echo $which_users_options['logged_in'];
+						} else {
+							echo $which_users_options['logged_out'];
+						}
+						?>
+					</option>
+				</select>
+
+			</p>
+
+		<?php else: ?>
 
 			<p class="nav_item_options-which_users  description  description-wide">
 
