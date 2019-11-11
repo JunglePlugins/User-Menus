@@ -115,6 +115,9 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 
 == Changelog ==
 
+= Unreleased Changes =
+* Improvement: Login, Register & Logout menu links now hint at who they will be visible for.
+
 = v1.2.1 - 10/20/2019 =
 * Fix: Bug in some sites where Menu Editor Description field was not shown.
 
