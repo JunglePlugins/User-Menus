@@ -26,7 +26,7 @@ class Reviews {
 	 *
 	 */
 	public static function init() {
-		add_action( 'init', array( __CLASS__, 'hooks' ) );
+		add_action( 'admin_init', array( __CLASS__, 'hooks' ) );
 		add_action( 'wp_ajax_jpum_review_action', array( __CLASS__, 'ajax_handler' ) );
 	}
 
