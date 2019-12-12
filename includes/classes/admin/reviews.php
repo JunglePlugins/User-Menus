@@ -269,7 +269,11 @@ class Reviews {
 				return false;
 			}
 
-			return ! isset( $code ) ? $triggers[ $group ] : isset( $triggers[ $group ]['triggers'][ $code ] ) ? $triggers[ $group ]['triggers'][ $code ] : false;
+			if ( ! isset( $code ) ) {
+			    return $triggers[ $group ];
+            } else {
+                return isset( $triggers[ $group ]['triggers'][ $code ] ) ? $triggers[ $group ]['triggers'][ $code ] : false;
+            }
 		}
 
 		return $triggers;
