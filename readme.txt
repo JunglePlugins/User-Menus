@@ -115,7 +115,7 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 
 == Changelog ==
 
-= v1.2.2 - 12/7/2019 =
+= v1.2.2 - 12/17/2019 =
 * Improvement: Login, Register & Logout menu links now hint at who they will be visible for.
 * Fix: Deprecation notice for sites using PHP 7.4
 
