@@ -6,7 +6,7 @@ Donate link: https://code-atlantic.com/donate/
 Tags: menu, menus, user-menu, logout, nav-menu, nav-menus, user, user-role, user-roles
 Requires at least: 4.6
 Tested up to: 5.2.4
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 Requires PHP: 5.3
 License: GPLv3 or Any Later Version
 
@@ -115,8 +115,9 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 
 == Changelog ==
 
-= Unreleased Changes =
+= v1.2.2 - 12/7/2019 =
 * Improvement: Login, Register & Logout menu links now hint at who they will be visible for.
+* Fix: Deprecation notice for sites using PHP 7.4
 
 = v1.2.1 - 10/20/2019 =
 * Fix: Bug in some sites where Menu Editor Description field was not shown.
