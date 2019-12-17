@@ -55,47 +55,47 @@ msgstr ""
 msgid "Avatar Size"
 msgstr ""
 
-#: includes/classes/admin/menu-settings.php:55
-msgid "Current Page"
-msgstr ""
-
-#: includes/classes/admin/menu-settings.php:56
-msgid "Home Page"
-msgstr ""
-
-#: includes/classes/admin/menu-settings.php:57
-msgid "Custom URL"
-msgstr ""
-
-#: includes/classes/admin/menu-settings.php:64
-msgid "Where should users be taken afterwards?"
-msgstr ""
-
-#: includes/classes/admin/menu-settings.php:82
-msgid "Enter a url user should be redirected to"
-msgstr ""
-
-#: includes/classes/admin/menu-settings.php:93
+#: includes/classes/admin/menu-settings.php:52
 msgid "Everyone"
 msgstr ""
 
-#: includes/classes/admin/menu-settings.php:94
+#: includes/classes/admin/menu-settings.php:53
 msgid "Logged Out Users"
 msgstr ""
 
-#: includes/classes/admin/menu-settings.php:95
+#: includes/classes/admin/menu-settings.php:54
 msgid "Logged In Users"
 msgstr ""
 
-#: includes/classes/admin/menu-settings.php:102
+#: includes/classes/admin/menu-settings.php:60
+msgid "Current Page"
+msgstr ""
+
+#: includes/classes/admin/menu-settings.php:61
+msgid "Home Page"
+msgstr ""
+
+#: includes/classes/admin/menu-settings.php:62
+msgid "Custom URL"
+msgstr ""
+
+#: includes/classes/admin/menu-settings.php:69
+msgid "Where should users be taken afterwards?"
+msgstr ""
+
+#: includes/classes/admin/menu-settings.php:87
+msgid "Enter a url user should be redirected to"
+msgstr ""
+
+#: includes/classes/admin/menu-settings.php:99, includes/classes/admin/menu-settings.php:123
 msgid "Who can see this link?"
 msgstr ""
 
-#: includes/classes/admin/menu-settings.php:120
+#: includes/classes/admin/menu-settings.php:141
 msgid "Choose which roles can see this link"
 msgstr ""
 
-#: includes/classes/admin/menu-settings.php:127
+#: includes/classes/admin/menu-settings.php:148
 msgid "Choose which roles won't see this link"
 msgstr ""
 
@@ -111,15 +111,15 @@ msgstr ""
 msgid "3 months"
 msgstr ""
 
-#: includes/classes/admin/reviews.php:385
+#: includes/classes/admin/reviews.php:389
 msgid "Ok, you deserve it"
 msgstr ""
 
-#: includes/classes/admin/reviews.php:390
+#: includes/classes/admin/reviews.php:394
 msgid "Nope, maybe later"
 msgstr ""
 
-#: includes/classes/admin/reviews.php:395
+#: includes/classes/admin/reviews.php:399
 msgid "I already did"
 msgstr ""
 
