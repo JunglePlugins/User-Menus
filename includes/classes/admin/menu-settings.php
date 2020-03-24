@@ -18,6 +18,7 @@ class Menu_Settings {
 	 */
 	public static function init() {
 		add_action( 'wp_nav_menu_item_custom_fields', array( __CLASS__, 'fields' ), 10, 4 );
+//		add_action( 'wp_nav_menu_item_custom_fields_customize_template', array( __CLASS__, 'fields' ) );
 		add_action( 'wp_update_nav_menu_item', array( __CLASS__, 'save' ), 10, 2 );
 	}
 
