@@ -5,8 +5,8 @@ Plugin URI:  https://wordpress.org/plugins/user-menus/
 Donate link: https://code-atlantic.com/donate/
 Tags: menu, menus, user-menu, logout, nav-menu, nav-menus, user, user-role, user-roles
 Requires at least: 4.6
-Tested up to: 5.2.4
-Stable tag: 1.2.2
+Tested up to: 5.4
+Stable tag: 1.2.3
 Requires PHP: 5.3
 License: GPLv3 or Any Later Version
 
@@ -114,6 +114,9 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 
 
 == Changelog ==
+
+= v1.2.3 - 3/23/2020 =
+* Tweak: Add compatibility fix for WP 5.4 menu walker
 
 = v1.2.2 - 12/17/2019 =
 * Improvement: Login, Register & Logout menu links now hint at who they will be visible for.
