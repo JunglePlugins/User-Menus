@@ -115,6 +115,9 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 
 == Changelog ==
 
+= v1.2.4 - ??/??/2020 =
+* Fix: Compatibility issue with some sites where duplicate fields were shown in the menu editor.
+
 = v1.2.3 - 3/23/2020 =
 * Tweak: Add compatibility fix for WP 5.4 menu walker
 
