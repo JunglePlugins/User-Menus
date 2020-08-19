@@ -5,9 +5,9 @@ Plugin URI:  https://wordpress.org/plugins/user-menus/
 Donate link: https://code-atlantic.com/donate/
 Tags: menu, menus, user-menu, logout, nav-menu, nav-menus, user, user-role, user-roles
 Requires at least: 4.6
-Tested up to: 5.4
-Stable tag: 1.2.3
-Requires PHP: 5.3
+Tested up to: 5.5
+Stable tag: 1.2.4
+Requires PHP: 5.6
 License: GPLv3 or Any Later Version
 
 Show/hide menu items to logged in users, logged out users or specific user roles. Display logged in user details in menu. Add a logout link to menu.
@@ -54,7 +54,7 @@ Check out some of our most popular plugins:
 * [Ahoy][ahoy] - Automated Marketing Messages for WordPress
 * [Content Control][contentcontrol] - Restrict Access to Pages and Posts
 
-**Requires WordPress 3.6 and PHP 5.3**
+**Requires WordPress 4.6 and PHP 5.6**
 
 [codeatlantic]: https://code-atlantic.com "Code Atlantic - High Quality WordPress Plugins"
 
@@ -68,8 +68,8 @@ Check out some of our most popular plugins:
 
 = Minimum Requirements =
 
-* WordPress 3.6 or greater
-* PHP version 5.3 or greater
+* WordPress 4.6 or greater
+* PHP version 5.6 or greater
 
 = Installation =
 
@@ -114,6 +114,9 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 
 
 == Changelog ==
+
+= v1.2.4 - ??/??/2020 =
+* Fix: Compatibility issue with some sites where duplicate fields were shown in the menu editor.
 
 = v1.2.3 - 3/23/2020 =
 * Tweak: Add compatibility fix for WP 5.4 menu walker
