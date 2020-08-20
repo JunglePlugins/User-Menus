@@ -116,6 +116,7 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 == Changelog ==
 
 = v1.2.4 - ??/??/2020 =
+* Improvement: Removed class that could cause links to be disabled with some themes.
 * Fix: Compatibility issue with some sites where duplicate fields were shown in the menu editor.
 
 = v1.2.3 - 3/23/2020 =
