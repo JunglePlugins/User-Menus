@@ -109,8 +109,8 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 == Changelog ==
 
 = v1.2.4 - 08/20/2020 =
-* Tweak: Update Freemius sdk to v2.4.0.1.
 * Improvement: Removed class that could cause links to be disabled with some themes.
+* Tweak: Update Freemius sdk to v2.4.0.1.
 * Fix: Compatibility issue with some sites where duplicate fields were shown in the menu editor.
 
 = v1.2.3 - 3/23/2020 =
