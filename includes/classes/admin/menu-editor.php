@@ -75,7 +75,6 @@ class Menu_Editor {
 			array(
 				'object'  => 'register',
 				'title'   => __( 'Register', 'user-menus' ),
-				'classes' => array( 'disabled' ),
 			),
 			array(
 				'object' => 'logout',

@@ -3,15 +3,15 @@
  * Plugin Name:  User Menus
  * Plugin URI:   https://wordpress.org/plugins/user-menus/
  * Description:  Quickly customize your menus with a user's name & avatar, or show items based on user role.
- * Version:      1.2.3
+ * Version:      1.2.4
  * Author:       Code Atlantic
  * Author URI:   https://code-atlantic.com/
  * License:      GPL2 or later
  * License URI:  https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:  user-menus
  *
- * Minimum PHP: 5.3
- * Minimum WP: 3.6
+ * Minimum PHP: 5.6
+ * Minimum WP: 4.6
  *
  * @author      Daniel Iser
  * @copyright   Copyright (c) 2019, Code Atlantic LLC
@@ -74,17 +74,17 @@ class JP_User_Menus {
 	/**
 	 * @var string
 	 */
-	public static $VER = '1.2.3';
+	public static $VER = '1.2.6';
 
 	/**
 	 * @var string
 	 */
-	public static $MIN_PHP_VER = '5.3';
+	public static $MIN_PHP_VER = '5.6';
 
 	/**
 	 * @var string
 	 */
-	public static $MIN_WP_VER = '3.6';
+	public static $MIN_WP_VER = '4.6';
 
 	/**
 	 * @var string

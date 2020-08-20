@@ -8,6 +8,7 @@ Requires at least: 4.6
 Tested up to: 5.5
 Stable tag: 1.2.4
 Requires PHP: 5.6
+Freemius: 2.4.0.1
 License: GPLv3 or Any Later Version
 
 Show/hide menu items to logged in users, logged out users or specific user roles. Display logged in user details in menu. Add a logout link to menu.
@@ -51,7 +52,6 @@ User Menus is built by the [Code Atlantic][codeatlantic] team. We create high-qu
 Check out some of our most popular plugins:
 
 * [Popup Maker][popupmaker] - #1 Popup & Marketing Plugin for WordPress
-* [Ahoy][ahoy] - Automated Marketing Messages for WordPress
 * [Content Control][contentcontrol] - Restrict Access to Pages and Posts
 
 **Requires WordPress 4.6 and PHP 5.6**
@@ -59,8 +59,6 @@ Check out some of our most popular plugins:
 [codeatlantic]: https://code-atlantic.com "Code Atlantic - High Quality WordPress Plugins"
 
 [popupmaker]: https://wppopupmaker.com "#1 Popup & Marketing Plugin for WordPress"
-
-[ahoy]: https://useahoy.com "Automated Marketing Messages for WordPress"
 
 [contentcontrol]: https://wordpress.org/plugins/content-control/ "Control Who Can Access Content"
 
@@ -94,16 +92,11 @@ If you need help getting started with User Menus please see [FAQs][faq page] whi
 
 = Where can I get support? =
 
-If you get stuck, you can ask for help in the [User Menu Plugin Forum][support forum].
+If you get stuck, you can ask for help in the [User Menu Plugin Forum](https://wordpress.org/support/plugin/user-menus).
 
 = Where can I report bugs or contribute to the project? =
 
-Bugs can be reported either in our support forum or preferably on the [User Menu GitHub][github issues] repository (link to GitHub repo).
-
-
-[github issues]: https://github.com/jungleplugins/user-menus/issues "GitHub Issue tracker for User Menus by Jungle Plugins"
-
-[support forum]: https://wordpress.org/support/plugin/user-menus "User Menu Plugin Forum"
+Bugs can be reported either in our support forum or preferably on the [User Menu GitHub repository](https://github.com/jungleplugins/user-menus/issues).
 
 
 == Screenshots ==
@@ -115,7 +108,9 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 
 == Changelog ==
 
-= v1.2.4 - ??/??/2020 =
+= v1.2.4 - 08/20/2020 =
+* Improvement: Removed class that could cause links to be disabled with some themes.
+* Tweak: Update Freemius sdk to v2.4.0.1.
 * Fix: Compatibility issue with some sites where duplicate fields were shown in the menu editor.
 
 = v1.2.3 - 3/23/2020 =
