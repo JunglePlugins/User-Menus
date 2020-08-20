@@ -17,12 +17,7 @@ class Menu_Editor {
 	 * Init
 	 */
 	public static function init() {
-		global $wp_version;
-		
-		if ( version_compare( $wp_version, '5.4-alpha.1', '<' ) ) {
-			add_filter( 'wp_edit_nav_menu_walker', array( __CLASS__, 'nav_menu_walker' ), 999999999 );
-		}
-
+		add_filter( 'wp_edit_nav_menu_walker', array( __CLASS__, 'nav_menu_walker' ), 999999999 );
 		add_action( 'admin_head-nav-menus.php', array( __CLASS__, 'register_metaboxes' ) );
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_scripts' ) );
 	}
@@ -80,7 +75,6 @@ class Menu_Editor {
 			array(
 				'object'  => 'register',
 				'title'   => __( 'Register', 'user-menus' ),
-				'classes' => array( 'disabled' ),
 			),
 			array(
 				'object' => 'logout',
