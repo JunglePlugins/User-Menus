@@ -8,6 +8,7 @@ Requires at least: 4.6
 Tested up to: 5.5
 Stable tag: 1.2.4
 Requires PHP: 5.6
+Freemius: 2.4.0.1
 License: GPLv3 or Any Later Version
 
 Show/hide menu items to logged in users, logged out users or specific user roles. Display logged in user details in menu. Add a logout link to menu.
@@ -107,7 +108,8 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 
 == Changelog ==
 
-= v1.2.4 - ??/??/2020 =
+= v1.2.4 - 08/20/2020 =
+* Tweak: Update Freemius sdk to v2.4.0.1.
 * Improvement: Removed class that could cause links to be disabled with some themes.
 * Fix: Compatibility issue with some sites where duplicate fields were shown in the menu editor.
 
