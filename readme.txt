@@ -51,7 +51,6 @@ User Menus is built by the [Code Atlantic][codeatlantic] team. We create high-qu
 Check out some of our most popular plugins:
 
 * [Popup Maker][popupmaker] - #1 Popup & Marketing Plugin for WordPress
-* [Ahoy][ahoy] - Automated Marketing Messages for WordPress
 * [Content Control][contentcontrol] - Restrict Access to Pages and Posts
 
 **Requires WordPress 4.6 and PHP 5.6**
@@ -59,8 +58,6 @@ Check out some of our most popular plugins:
 [codeatlantic]: https://code-atlantic.com "Code Atlantic - High Quality WordPress Plugins"
 
 [popupmaker]: https://wppopupmaker.com "#1 Popup & Marketing Plugin for WordPress"
-
-[ahoy]: https://useahoy.com "Automated Marketing Messages for WordPress"
 
 [contentcontrol]: https://wordpress.org/plugins/content-control/ "Control Who Can Access Content"
 
@@ -94,16 +91,11 @@ If you need help getting started with User Menus please see [FAQs][faq page] whi
 
 = Where can I get support? =
 
-If you get stuck, you can ask for help in the [User Menu Plugin Forum][support forum].
+If you get stuck, you can ask for help in the [User Menu Plugin Forum](https://wordpress.org/support/plugin/user-menus).
 
 = Where can I report bugs or contribute to the project? =
 
-Bugs can be reported either in our support forum or preferably on the [User Menu GitHub][github issues] repository (link to GitHub repo).
-
-
-[github issues]: https://github.com/jungleplugins/user-menus/issues "GitHub Issue tracker for User Menus by Jungle Plugins"
-
-[support forum]: https://wordpress.org/support/plugin/user-menus "User Menu Plugin Forum"
+Bugs can be reported either in our support forum or preferably on the [User Menu GitHub repository](https://github.com/jungleplugins/user-menus/issues).
 
 
 == Screenshots ==
