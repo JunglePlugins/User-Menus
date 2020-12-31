@@ -108,6 +108,9 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 
 == Changelog ==
 
+= v1.2.5 - 12/31/2020 =
+* Update Freemius to 2.4.1
+
 = v1.2.4 - 08/20/2020 =
 * Improvement: Removed class that could cause links to be disabled with some themes.
 * Tweak: Update Freemius sdk to v2.4.0.1.
