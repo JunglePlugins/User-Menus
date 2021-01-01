@@ -2,3 +2,8 @@ node_modules
 release
 build
 package-lock.json
+
+# dist assets
+assets/css/
+assets/js/*.js
+languages/*.pot

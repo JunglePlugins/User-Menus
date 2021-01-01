@@ -5,10 +5,10 @@ Plugin URI:  https://wordpress.org/plugins/user-menus/
 Donate link: https://code-atlantic.com/donate/
 Tags: menu, menus, user-menu, logout, nav-menu, nav-menus, user, user-role, user-roles
 Requires at least: 4.6
-Tested up to: 5.5
-Stable tag: 1.2.4
+Tested up to: 5.6
+Stable tag: 1.2.5
 Requires PHP: 5.6
-Freemius: 2.4.0.1
+Freemius: 2.4.1
 License: GPLv3 or Any Later Version
 
 Show/hide menu items to logged in users, logged out users or specific user roles. Display logged in user details in menu. Add a logout link to menu.
@@ -107,6 +107,9 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 
 
 == Changelog ==
+
+= v1.2.5 - 12/31/2020 =
+* Update Freemius to 2.4.1
 
 = v1.2.4 - 08/20/2020 =
 * Improvement: Removed class that could cause links to be disabled with some themes.
