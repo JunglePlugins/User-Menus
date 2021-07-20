@@ -52,21 +52,21 @@ class Menu_Settings {
 		</p>
 
 
-			<?php
+		<?php
 
-			$which_users_options = [
-				''           => __( 'Everyone', 'user-menus' ),
-				'logged_out' => __( 'Logged Out Users', 'user-menus' ),
-				'logged_in'  => __( 'Logged In Users', 'user-menus' ),
+		$which_users_options = [
+			''           => __( 'Everyone', 'user-menus' ),
+			'logged_out' => __( 'Logged Out Users', 'user-menus' ),
+			'logged_in'  => __( 'Logged In Users', 'user-menus' ),
+		];
+
+		if ( in_array( $item->object, [ 'login', 'register', 'logout' ], true ) ) :
+			$redirect_types = [
+				'current' => __( 'Current Page', 'user-menus' ),
+				'home'    => __( 'Home Page', 'user-menus' ),
+				'custom'  => __( 'Custom URL', 'user-menus' ),
 			];
-
-			if ( in_array( $item->object, [ 'login', 'register', 'logout' ], true ) ) :
-				$redirect_types = [
-					'current' => __( 'Current Page', 'user-menus' ),
-					'home'    => __( 'Home Page', 'user-menus' ),
-					'custom'  => __( 'Custom URL', 'user-menus' ),
-				];
-				?>
+			?>
 
 			<p class="nav_item_options-redirect_type  description  description-wide">
 
@@ -108,28 +108,28 @@ class Menu_Settings {
 
 				<select n id="jp_nav_item_options-which_users-<?php echo esc_attr( $item->ID ); ?>" class="widefat" disabled="disabled">
 					<option>
-						<?php
-						if ( 'logout' === $item->object ) {
-							echo esc_html( $which_users_options['logged_in'] );
-						} else {
-							echo esc_html( $which_users_options['logged_out'] );
-						}
-						?>
+					<?php
+					if ( 'logout' === $item->object ) {
+						echo esc_html( $which_users_options['logged_in'] );
+					} else {
+						echo esc_html( $which_users_options['logged_out'] );
+					}
+					?>
 					</option>
 				</select>
 
 			</p>
 
-							<?php else : ?>
+		<?php else : ?>
 
 			<p class="nav_item_options-which_users  description  description-wide">
 
 				<label for="jp_nav_item_options-which_users-<?php echo esc_attr( $item->ID ); ?>">
 
-								<?php echo esc_html( __( 'Who can see this link?', 'user-menus' ) ); ?><br />
+					<?php echo esc_html( __( 'Who can see this link?', 'user-menus' ) ); ?><br />
 
 					<select name="jp_nav_item_options[<?php echo esc_attr( $item->ID ); ?>][which_users]" id="jp_nav_item_options-which_users-<?php echo esc_attr( $item->ID ); ?>" class="widefat">
-								<?php foreach ( $which_users_options as $option => $label ) : ?>
+							<?php foreach ( $which_users_options as $option => $label ) : ?>
 							<option value="<?php echo $option; ?>" <?php /*phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ selected( $option, $item->which_users ); ?>>
 									<?php echo esc_html( $label ); ?>
 							</option>
@@ -158,23 +158,23 @@ class Menu_Settings {
 
 			<p class="nav_item_options-roles  description  description-wide">
 
-								<?php foreach ( $allowed_user_roles as $option => $label ) : ?>
+				<?php foreach ( $allowed_user_roles as $option => $label ) : ?>
 					<label> <input type="checkbox" name="jp_nav_item_options[<?php echo esc_attr( $item->ID ); ?>][roles][]" value="<?php echo $option; ?>" <?php /*phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ checked( in_array( esc_attr( $option ), $item->roles, true ), true ); ?>/>
-									<?php echo esc_html( $label ); ?>
+						<?php echo esc_html( $label ); ?>
 					</label>
 				<?php endforeach; ?>
 
 			</p>
 
-								<?php
-			endif;
+			<?php
+		endif;
 	}
 
-						/**
-						 * Get array of allowed user roles.
-						 *
-						 * @return array
-						 */
+	/**
+	 * Get array of allowed user roles.
+	 *
+	 * @return array
+	 */
 	public static function allowed_user_roles() {
 		global $wp_roles;
 
@@ -191,12 +191,12 @@ class Menu_Settings {
 		return $roles;
 	}
 
-						/**
-						 * Save menu item data.
-						 *
-						 * @param int $menu_id Menu ID.
-						 * @param int $item_id Item ID.
-						 */
+	/**
+	 * Save menu item data.
+	 *
+	 * @param int $menu_id Menu ID.
+	 * @param int $item_id Item ID.
+	 */
 	public static function save( $menu_id, $item_id ) {
 		$allowed_roles = static::allowed_user_roles();
 
@@ -204,7 +204,8 @@ class Menu_Settings {
 			return;
 		}
 
-		$item_options = Item::parse_options( sanitize_text_field( wp_unslash( $_POST['jp_nav_item_options'][ $item_id ] ) ) );
+		/* phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized */
+		$item_options = Item::parse_options( wp_unslash( $_POST['jp_nav_item_options'][ $item_id ] ) );
 
 		if ( 'logged_in' === $item_options['which_users'] ) {
 			// Validate chosen roles and remove non-allowed roles.
@@ -228,4 +229,4 @@ class Menu_Settings {
 	}
 }
 
-		Menu_Settings::init();
+Menu_Settings::init();
