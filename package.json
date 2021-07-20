@@ -1,6 +1,6 @@
 {
   "name": "user-menus",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,6 +15,9 @@
     "url": "https://github.com/Jungle-Plugins/User-Menus/issues"
   },
   "homepage": "https://wordpress.org/plugins/user-menus/",
+  "engines": {
+    "node": "^10.0"
+  },
   "dependencies": {
     "gulp-clean-css": "^3.10.0",
     "gulp-sane-watch": "^2.0.6",

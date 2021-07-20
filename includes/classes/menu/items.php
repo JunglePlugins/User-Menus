@@ -1,4 +1,9 @@
 <?php
+/**
+ * Menu items class.
+ *
+ * @package User Menus
+ */
 
 namespace JP\UM\Menu;
 
@@ -13,24 +18,28 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Items {
 
+	/**
+	 * Current item.
+	 *
+	 * @var object
+	 */
 	private static $current_item;
 
 	/**
 	 * Init
 	 */
 	public static function init() {
-		add_filter( 'wp_setup_nav_menu_item', array( __CLASS__, 'merge_item_data' ) );
+		add_filter( 'wp_setup_nav_menu_item', [ __CLASS__, 'merge_item_data' ] );
 	}
 
 	/**
 	 * Merge Item data into the $item object.
 	 *
-	 * @param $item
+	 * @param object $item Item object.
 	 *
 	 * @return mixed
 	 */
 	public static function merge_item_data( $item ) {
-
 		self::$current_item = $item;
 
 		// Merge Rules.
@@ -38,8 +47,7 @@ class Items {
 			$item->$key = $value;
 		}
 
-		if ( in_array( $item->object, array( 'login', 'register', 'logout' ) ) ) {
-
+		if ( in_array( $item->object, [ 'login', 'register', 'logout' ], true ) ) {
 			$item->type_label = __( 'User Link', 'user-menus' );
 
 			switch ( $item->redirect_type ) {
@@ -66,14 +74,13 @@ class Items {
 					break;
 
 				case 'register':
-					$item->url = add_query_arg( array( 'redirect_to' => $redirect ), wp_registration_url() );
+					$item->url = add_query_arg( [ 'redirect_to' => $redirect ], wp_registration_url() );
 					break;
 
 				case 'logout':
 					$item->url = wp_logout_url( $redirect );
 					break;
 			}
-
 		}
 
 		// User text replacement.
@@ -81,49 +88,50 @@ class Items {
 			$item->title = static::user_titles( $item->title );
 		}
 
-
 		return $item;
 	}
 
 	/**
+	 * Get the current url.
+	 *
 	 * @return string
 	 */
 	public static function current_url() {
-		$protocol = ( ! empty( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] !== 'off' ) || $_SERVER['SERVER_PORT'] == 443 ? 'https://' : 'http://';
+		/* phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotValidated */
+		$protocol = ( ! empty( $_SERVER['HTTPS'] ) && 'off' !== $_SERVER['HTTPS'] ) || 443 === $_SERVER['SERVER_PORT'] ? 'https://' : 'http://';
 
-		return $protocol . $_SERVER['HTTP_HOST'] . $_SERVER["REQUEST_URI"];
+		return $protocol . sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) . sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) );
+		/* phpcs:enable WordPress.Security.ValidatedSanitizedInput.InputNotValidated */
 	}
 
 	/**
-	 * @param string $title
+	 * Get replacement titles.
+	 *
+	 * @param string $title Menu item title.
 	 *
 	 * @return mixed|string
 	 */
 	public static function user_titles( $title = '' ) {
-
 		preg_match_all( '/{(.*?)}/', $title, $found );
 
 		if ( count( $found[1] ) ) {
-
 			foreach ( $found[1] as $key => $match ) {
-
 				$title = static::text_replace( $title, $match );
-
 			}
 		}
 
 		return $title;
-
 	}
 
 	/**
-	 * @param string $title
-	 * @param string $match
+	 * Replace text.
+	 *
+	 * @param string $title Text to search.
+	 * @param string $match Strings to match.
 	 *
 	 * @return mixed|string
 	 */
 	public static function text_replace( $title = '', $match = '' ) {
-
 		if ( empty( $match ) ) {
 			return $title;
 		}
@@ -131,7 +139,7 @@ class Items {
 		if ( strpos( $match, '||' ) !== false ) {
 			$matches = explode( '||', $match );
 		} else {
-			$matches = array( $match );
+			$matches = [ $match ];
 		}
 
 		$current_user = wp_get_current_user();
@@ -139,22 +147,16 @@ class Items {
 		$replace = '';
 
 		foreach ( $matches as $string ) {
-
-
 			if ( ! array_key_exists( $string, Codes::valid_codes() ) ) {
 
 				// If its not a valid code it is likely a fallback.
 				$replace = $string;
-
-			} else if ( $current_user->ID == 0 && array_key_exists( $string, Codes::valid_codes() ) ) {
+			} elseif ( 0 === $current_user->ID && array_key_exists( $string, Codes::valid_codes() ) ) {
 
 				// If the code exists & user is not logged in, return nothing.
 				$replace = '';
-
 			} else {
-
 				switch ( $string ) {
-
 					case 'avatar':
 						$replace = get_avatar( $current_user->ID, self::$current_item->avatar_size );
 						break;
@@ -186,16 +188,13 @@ class Items {
 					default:
 						$replace = $string;
 						break;
-
 				}
-
 			}
 
 			// If we found a replacement stop the loop.
 			if ( ! empty( $replace ) ) {
 				break;
 			}
-
 		}
 
 		return str_replace( '{' . $match . '}', $replace, $title );

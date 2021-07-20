@@ -1,4 +1,9 @@
 <?php
+/**
+ * User code class.
+ *
+ * @package User Menus
+ */
 
 namespace JP\UM\User;
 
@@ -12,10 +17,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Codes {
 
 	/**
+	 * Get a list of valid user replacement codes.
+	 *
 	 * @return array
 	 */
 	public static function valid_codes() {
-		return array(
+		return [
 			'avatar'       => __( 'Avatar', 'user-menus' ),
 			'first_name'   => __( 'First Name', 'user-menus' ),
 			'last_name'    => __( 'Last Name', 'user-menus' ),
@@ -23,7 +30,7 @@ class Codes {
 			'display_name' => __( 'Display Name', 'user-menus' ),
 			'nickname'     => __( 'Nickname', 'user-menus' ),
 			'email'        => __( 'Email', 'user-menus' ),
-		);
+		];
 	}
 
 }
