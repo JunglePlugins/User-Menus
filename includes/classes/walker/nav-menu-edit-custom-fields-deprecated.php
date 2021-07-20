@@ -1,4 +1,9 @@
 <?php
+/**
+ * Nav menu walker class for Old WP Versions.
+ *
+ * @package User Menus
+ */
 
 if ( ! class_exists( 'Walker_Nav_Menu_Edit' ) ) {
 	/** Walker_Nav_Menu_Edit class */
@@ -27,13 +32,13 @@ class Walker_Nav_Menu_Edit_Custom_Fields extends Walker_Nav_Menu_Edit {
 	 * @param string $output Passed by reference. Used to append additional content.
 	 * @param object $item   Menu item data object.
 	 * @param int    $depth  Depth of menu item.
-	 * @param array  $args
+	 * @param array  $args Additional arguments.
 	 *
 	 * @see Walker_Nav_Menu_Edit::start_el()
 	 */
-	public function start_el( &$output, $item, $depth = 0, $args = array() ) {
+	public function start_el( &$output, $item, $depth = 0, $args = [] ) {
 		$item_output = '';
-		$output      .= parent::start_el( $output, $item, $depth, $args );
+		$output     .= parent::start_el( $output, $item, $depth, $args );
 		// NOTE: Check this regex on major WP version updates!
 		$output .= preg_replace( '/(?=<fieldset[^>]+class="[^"]*field-move)/', $this->get_custom_fields( $item, $depth, $args ), $item_output );
 	}
@@ -47,9 +52,8 @@ class Walker_Nav_Menu_Edit_Custom_Fields extends Walker_Nav_Menu_Edit {
 	 *
 	 * @return string Additional fields or html for the nav menu editor.
 	 * @uses do_action() Calls 'menu_item_custom_fields' hook
-	 *
 	 */
-	protected function get_custom_fields( $item, $depth, $args = array() ) {
+	protected function get_custom_fields( $item, $depth, $args = [] ) {
 		ob_start();
 		$item_id = intval( $item->ID );
 		/**

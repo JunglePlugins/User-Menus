@@ -1,4 +1,9 @@
 <?php
+/**
+ * Review request class.
+ *
+ * @package User Menus
+ */
 
 namespace JP\UM\Admin;
 
@@ -23,11 +28,11 @@ class Reviews {
 	public static $api_url;
 
 	/**
-	 *
+	 * Initialize.
 	 */
 	public static function init() {
-		add_action( 'admin_init', array( __CLASS__, 'hooks' ) );
-		add_action( 'wp_ajax_jpum_review_action', array( __CLASS__, 'ajax_handler' ) );
+		add_action( 'admin_init', [ __CLASS__, 'hooks' ] );
+		add_action( 'wp_ajax_jpum_review_action', [ __CLASS__, 'ajax_handler' ] );
 	}
 
 	/**
@@ -36,9 +41,9 @@ class Reviews {
 	public static function hooks() {
 		if ( is_admin() && current_user_can( 'edit_theme_options' ) ) {
 			self::installed_on();
-			add_action( 'admin_notices', array( __CLASS__, 'admin_notices' ) );
-			add_action( 'network_admin_notices', array( __CLASS__, 'admin_notices' ) );
-			add_action( 'user_admin_notices', array( __CLASS__, 'admin_notices' ) );
+			add_action( 'admin_notices', [ __CLASS__, 'admin_notices' ] );
+			add_action( 'network_admin_notices', [ __CLASS__, 'admin_notices' ] );
+			add_action( 'user_admin_notices', [ __CLASS__, 'admin_notices' ] );
 		}
 	}
 
@@ -62,16 +67,17 @@ class Reviews {
 	 * AJAX Handler
 	 */
 	public static function ajax_handler() {
-		$args = wp_parse_args( $_REQUEST, array(
+		/* phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated */
+		if ( ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['nonce'] ) ), 'jpum_review_action' ) ) {
+			wp_send_json_error();
+		}
+
+		$args = wp_parse_args( $_REQUEST, [
 			'group'  => self::get_trigger_group(),
 			'code'   => self::get_trigger_code(),
 			'pri'    => self::get_current_trigger( 'pri' ),
 			'reason' => 'maybe_later',
-		) );
-
-		if ( ! wp_verify_nonce( $_REQUEST['nonce'], 'jpum_review_action' ) ) {
-			wp_send_json_error();
-		}
+		] );
 
 		try {
 			$user_id = get_current_user_id();
@@ -92,27 +98,27 @@ class Reviews {
 			}
 
 			wp_send_json_success();
-
 		} catch ( \Exception $e ) {
 			wp_send_json_error( $e );
 		}
 	}
 
 	/**
+	 * Get review trigger group.
+	 *
 	 * @return int|string
 	 */
 	public static function get_trigger_group() {
 		static $selected;
 
 		if ( ! isset( $selected ) ) {
-
 			$dismissed_triggers = self::dismissed_triggers();
 
 			$triggers = self::triggers();
 
 			foreach ( $triggers as $g => $group ) {
 				foreach ( $group['triggers'] as $t => $trigger ) {
-					if ( ! in_array( false, $trigger['conditions'] ) && ( empty( $dismissed_triggers[ $g ] ) || $dismissed_triggers[ $g ] < $trigger['pri'] ) ) {
+					if ( ! in_array( false, $trigger['conditions'], true ) && ( empty( $dismissed_triggers[ $g ] ) || $dismissed_triggers[ $g ] < $trigger['pri'] ) ) {
 						$selected = $g;
 						break;
 					}
@@ -128,18 +134,19 @@ class Reviews {
 	}
 
 	/**
+	 * Get review trigger code.
+	 *
 	 * @return int|string
 	 */
 	public static function get_trigger_code() {
 		static $selected;
 
 		if ( ! isset( $selected ) ) {
-
 			$dismissed_triggers = self::dismissed_triggers();
 
 			foreach ( self::triggers() as $g => $group ) {
 				foreach ( $group['triggers'] as $t => $trigger ) {
-					if ( ! in_array( false, $trigger['conditions'] ) && ( empty( $dismissed_triggers[ $g ] ) || $dismissed_triggers[ $g ] < $trigger['pri'] ) ) {
+					if ( ! in_array( false, $trigger['conditions'], true ) && ( empty( $dismissed_triggers[ $g ] ) || $dismissed_triggers[ $g ] < $trigger['pri'] ) ) {
 						$selected = $t;
 						break;
 					}
@@ -155,7 +162,9 @@ class Reviews {
 	}
 
 	/**
-	 * @param null $key
+	 * Get current trigger.
+	 *
+	 * @param string $key Trigger key string.
 	 *
 	 * @return bool|mixed|void
 	 */
@@ -189,7 +198,7 @@ class Reviews {
 		$dismissed_triggers = get_user_meta( $user_id, '_jpum_reviews_dismissed_triggers', true );
 
 		if ( ! $dismissed_triggers ) {
-			$dismissed_triggers = array();
+			$dismissed_triggers = [];
 		}
 
 		return $dismissed_triggers;
@@ -217,50 +226,50 @@ class Reviews {
 	/**
 	 * Gets a list of triggers.
 	 *
-	 * @param null $group
-	 * @param null $code
+	 * @param string $group Group key.
+	 * @param string $code Trigger ID.
 	 *
-	 * @return bool|mixed|void
+	 * @return array
 	 */
 	public static function triggers( $group = null, $code = null ) {
 		static $triggers;
 
 		if ( ! isset( $triggers ) ) {
-
+			/* phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment */
 			$time_message = __( 'Hi there! You\'ve been using the User Menus plugin on your site for %s now - We hope it\'s been helpful. If you\'re enjoying the plugin, would you mind rating it 5-stars to help spread the word?', 'user-menus' );
-			$triggers     = array(
-				'time_installed' => array(
-					'triggers' => array(
-						'one_week'     => array(
+			$triggers     = [
+				'time_installed' => [
+					'triggers' => [
+						'one_week'     => [
 							'message'    => sprintf( $time_message, __( '2 weeks', 'user-menus' ) ),
-							'conditions' => array(
+							'conditions' => [
 								strtotime( self::installed_on() . ' +2 weeks' ) < time(),
-							),
+							],
 							'link'       => 'https://wordpress.org/support/plugin/user-menus/reviews/?rate=5#rate-response',
 							'pri'        => 10,
-						),
-						'three_months' => array(
+						],
+						'three_months' => [
 							'message'    => sprintf( $time_message, __( '3 months', 'user-menus' ) ),
-							'conditions' => array(
+							'conditions' => [
 								strtotime( self::installed_on() . ' +3 months' ) < time(),
-							),
+							],
 							'link'       => 'https://wordpress.org/support/plugin/user-menus/reviews/?rate=5#rate-response',
 							'pri'        => 20,
-						),
+						],
 
-					),
+					],
 					'pri'      => 10,
-				),
-			);
+				],
+			];
 
 			$triggers = apply_filters( 'jpum_reviews_triggers', $triggers );
 
-			// Sort Groups
-			uasort( $triggers, array( __CLASS__, 'rsort_by_priority' ) );
+			// Sort Groups.
+			uasort( $triggers, [ __CLASS__, 'rsort_by_priority' ] );
 
 			// Sort each groups triggers.
 			foreach ( $triggers as $k => $v ) {
-				uasort( $triggers[ $k ]['triggers'], array( __CLASS__, 'rsort_by_priority' ) );
+				uasort( $triggers[ $k ]['triggers'], [ __CLASS__, 'rsort_by_priority' ] );
 			}
 		}
 
@@ -270,10 +279,10 @@ class Reviews {
 			}
 
 			if ( ! isset( $code ) ) {
-			    return $triggers[ $group ];
-            } else {
-                return isset( $triggers[ $group ]['triggers'][ $code ] ) ? $triggers[ $group ]['triggers'][ $code ] : false;
-            }
+				return $triggers[ $group ];
+			} else {
+				return isset( $triggers[ $group ]['triggers'][ $code ] ) ? $triggers[ $group ]['triggers'][ $code ] : false;
+			}
 		}
 
 		return $triggers;
@@ -300,9 +309,9 @@ class Reviews {
 		<script type="text/javascript">
 			(function ($) {
 				var trigger = {
-					group: '<?php echo $group; ?>',
-					code: '<?php echo $code; ?>',
-					pri: '<?php echo $pri; ?>'
+					group: '<?php echo esc_html( $group ); ?>',
+					code: '<?php echo esc_html( $code ); ?>',
+					pri: '<?php echo esc_html( $pri ); ?>'
 				};
 
 				function dismiss(reason) {
@@ -312,7 +321,7 @@ class Reviews {
 						url: ajaxurl,
 						data: {
 							action: 'jpum_review_action',
-							nonce: '<?php echo wp_create_nonce( 'jpum_review_action' ); ?>',
+							nonce: '<?php echo esc_attr( wp_create_nonce( 'jpum_review_action' ) ); ?>',
 							group: trigger.group,
 							code: trigger.code,
 							pri: trigger.pri,
@@ -324,12 +333,12 @@ class Reviews {
 					$.ajax({
 						method: "POST",
 						dataType: "json",
-						url: '<?php echo self::$api_url; ?>',
+						url: '<?php echo esc_attr( self::$api_url ); ?>',
 						data: {
 							trigger_group: trigger.group,
 							trigger_code: trigger.code,
 							reason: reason,
-							uuid: '<?php echo $uuid; ?>'
+							uuid: '<?php echo esc_attr( $uuid ); ?>'
 						}
 					});
 					<?php endif; ?>
@@ -376,27 +385,27 @@ class Reviews {
 		<div class="notice notice-success is-dismissible jpum-notice">
 
 			<p>
-				<img class="logo" src="<?php echo \JP_User_Menus::$URL; ?>assets/images/icon-128x128.png" />
+				<img class="logo" src="<?php echo esc_attr( \JP_User_Menus::$URL ); ?>assets/images/icon-128x128.png" />
 				<strong>
-					<?php echo $trigger['message']; ?>
+					<?php echo esc_attr( $trigger['message'] ); ?>
 					<br />
 					~<a target="_blank" href="https://twitter.com/danieliser" title="Follow Daniel on Twitter">@danieliser</a>
 				</strong>
 			</p>
 			<ul>
 				<li>
-					<a class="jpum-dismiss" target="_blank" href="<?php echo $trigger['link']; ?>>" data-reason="am_now">
-						<strong><?php _e( 'Ok, you deserve it', 'user-menus' ); ?></strong>
+					<a class="jpum-dismiss" target="_blank" href="<?php echo esc_attr( $trigger['link'] ); ?>>" data-reason="am_now">
+						<strong><?php echo esc_html( __( 'Ok, you deserve it', 'user-menus' ) ); ?></strong>
 					</a>
 				</li>
 				<li>
 					<a href="#" class="jpum-dismiss" data-reason="maybe_later">
-						<?php _e( 'Nope, maybe later', 'user-menus' ); ?>
+						<?php esc_html( __( 'Nope, maybe later', 'user-menus' ) ); ?>
 					</a>
 				</li>
 				<li>
 					<a href="#" class="jpum-dismiss" data-reason="already_did">
-						<?php _e( 'I already did', 'user-menus' ); ?>
+						<?php esc_html( __( 'I already did', 'user-menus' ) ); ?>
 					</a>
 				</li>
 			</ul>
@@ -414,13 +423,13 @@ class Reviews {
 	public static function hide_notices() {
 		$code = self::get_trigger_code();
 
-		$conditions = array(
+		$conditions = [
 			self::already_did(),
 			self::last_dismissed() && strtotime( self::last_dismissed() . ' +2 weeks' ) > time(),
 			empty( $code ),
-		);
+		];
 
-		return in_array( true, $conditions );
+		return in_array( true, $conditions, true );
 	}
 
 	/**
@@ -435,10 +444,10 @@ class Reviews {
 	}
 
 	/**
-	 * Sort array by priority value
+	 * Sort array by priority value.
 	 *
-	 * @param $a
-	 * @param $b
+	 * @param string|int $a The first value to compare.
+	 * @param string|int $b The second value to compare.
 	 *
 	 * @return int
 	 */
@@ -453,8 +462,8 @@ class Reviews {
 	/**
 	 * Sort array in reverse by priority value
 	 *
-	 * @param $a
-	 * @param $b
+	 * @param string|int $a The first value to compare.
+	 * @param string|int $b The second value to compare.
 	 *
 	 * @return int
 	 */

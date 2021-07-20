@@ -1,4 +1,9 @@
 <?php
+/**
+ * Nav menu custom importer class.
+ *
+ * @package User Menus
+ */
 
 namespace JP\UM\Importer;
 
@@ -12,13 +17,10 @@ if ( ! defined( 'WP_LOAD_IMPORTERS' ) ) {
 
 /** Display verbose errors */
 if ( ! defined( 'IMPORT_DEBUG' ) ) {
-	/**
-	 *
-	 */
 	define( 'IMPORT_DEBUG', false );
 }
 
-// Load Importer API
+// Load Importer API.
 if ( ! function_exists( 'get_importers' ) ) {
 	require_once ABSPATH . 'wp-admin/includes/import.php';
 }
@@ -27,6 +29,7 @@ if ( ! class_exists( 'WP_Importer' ) ) {
 	require_once ABSPATH . 'wp-admin/includes/class-wp-importer.php';
 }
 
+/* phpcs:disable WordPress.WP.I18n.MissingTranslatorsComment, WordPress.Security.EscapeOutput.OutputNotEscaped */
 
 /**
  * Class JP\UM\Importer\Menu
@@ -34,36 +37,50 @@ if ( ! class_exists( 'WP_Importer' ) ) {
 class Menu extends \WP_Importer {
 
 	/**
-	 * @var float max. supported WXR version
+	 * Max supported WXR version
+	 *
+	 * @var float
 	 */
 	public $max_wxr_version = 1.2;
 
 	/**
-	 * @var integer WXR attachment ID
+	 * WXR attachment ID
+	 *
+	 * @var integer
 	 */
 	public $id;
 
 	/**
-	 * @var string WXR File Version
+	 * WXR File Version
+	 *
+	 * @var string
 	 */
 	public $version;
+
 	/**
+	 * Array of posts.
+	 *
 	 * @var array
 	 */
-	public $posts = array();
+	public $posts = [];
+
 	/**
+	 * Base URL.
+	 *
 	 * @var string
 	 */
 	public $base_url = '';
 
 	/**
+	 * Invalid meta keys.
+	 *
 	 * @var array
 	 */
-	public $invalid_meta_keys = array(
+	public $invalid_meta_keys = [
 		'_wp_attached_file',
 		'_wp_attachment_metadata',
 		'_edit_lock',
-	);
+	];
 
 	/**
 	 * Registered callback function for the WordPress Importer
@@ -133,7 +150,7 @@ class Menu extends \WP_Importer {
 			echo esc_html( $file['error'] ) . '</p>';
 
 			return false;
-		} else if ( ! file_exists( $file['file'] ) ) {
+		} elseif ( ! file_exists( $file['file'] ) ) {
 			echo '<p><strong>' . __( 'Sorry, there has been an error.', 'user-menus' ) . '</strong><br />';
 			printf( __( 'The export file could not be found at <code>%s</code>. It is likely that this was caused by a permissions problem.', 'user-menus' ), esc_html( $file['file'] ) );
 			echo '</p>';
@@ -163,11 +180,11 @@ class Menu extends \WP_Importer {
 	/**
 	 * The main controller for the actual import stage.
 	 *
-	 * @param string $file Path to the WXR file for importing
+	 * @param string $file Path to the WXR file for importing.
 	 */
 	public function import( $file ) {
-		add_filter( 'import_post_meta_key', array( $this, 'is_valid_meta_key' ) );
-		add_filter( 'http_request_timeout', array( $this, 'bump_request_timeout' ) );
+		add_filter( 'import_post_meta_key', [ $this, 'is_valid_meta_key' ] );
+		add_filter( 'http_request_timeout', [ $this, 'bump_request_timeout' ] );
 
 		$this->import_start( $file );
 
@@ -188,9 +205,9 @@ class Menu extends \WP_Importer {
 	/**
 	 * Parse a WXR file
 	 *
-	 * @param string $file Path to WXR file for parsing
+	 * @param string $file Path to WXR file for parsing.
 	 *
-	 * @return array Information gathered from the WXR file
+	 * @return array Information gathered from the WXR file.
 	 */
 	public function parse( $file ) {
 		$parser = new \WXR_Parser();
@@ -199,9 +216,9 @@ class Menu extends \WP_Importer {
 	}
 
 	/**
-	 * Parses the WXR file and prepares us for the task of processing parsed data
+	 * Parses the WXR file and prepares us for the task of processing parsed data.
 	 *
-	 * @param string $file Path to the WXR file for importing
+	 * @param string $file Path to the WXR file for importing.
 	 */
 	public function import_start( $file ) {
 		if ( ! is_file( $file ) ) {
@@ -217,7 +234,8 @@ class Menu extends \WP_Importer {
 
 		if ( is_wp_error( $import_data ) ) {
 			echo '<p><strong>' . __( 'Sorry, there has been an error.', 'user-menus' ) . '</strong><br />';
-			echo esc_html( $import_data->get_error_message() );;
+			echo esc_html( $import_data->get_error_message() );
+
 			echo '</p>';
 
 			$this->footer();
@@ -238,29 +256,25 @@ class Menu extends \WP_Importer {
 		foreach ( $this->posts as $post ) {
 
 			// Exclude other post types.
-			if ( 'nav_menu_item' != $post['post_type'] || ! empty( $post['post_id'] ) ) {
+			if ( 'nav_menu_item' !== $post['post_type'] || ! empty( $post['post_id'] ) ) {
 				continue;
 			}
 
 			$post_id = (int) $post['post_id'];
 
 			if ( isset( $post['postmeta'] ) ) {
-
 				foreach ( $post['postmeta'] as $meta ) {
-
 					$key   = apply_filters( 'import_post_meta_key', $meta['key'] );
 					$value = false;
 
-
 					if ( $key ) {
-						// export gets meta straight from the DB so could have a serialized string
+						// export gets meta straight from the DB so could have a serialized string.
 						if ( ! $value ) {
 							$value = maybe_unserialize( $meta['value'] );
 						}
 
 						update_post_meta( $post_id, $key, $value );
 						do_action( 'import_post_meta', $post_id, $key, $value );
-
 					}
 				}
 			}
@@ -270,27 +284,27 @@ class Menu extends \WP_Importer {
 	}
 
 	/**
-	 * Performs post-import cleanup of files and the cache
+	 * Performs post-import cleanup of files and the cache.
 	 */
 	public function import_end() {
 		wp_import_cleanup( $this->id );
 
 		wp_cache_flush();
 
-		echo '<p>' . __( 'All done.', 'user-menus' ) . ' <a href="' . admin_url() . '">' . __( 'Have fun!', 'user-menus' ) . '</a>' . '</p>';
+		echo '<p>' . __( 'All done.', 'user-menus' ) . ' <a href="' . admin_url() . '">' . __( 'Have fun!', 'user-menus' ) . '</a></p>';
 
 		do_action( 'import_end' );
 	}
 
 	/**
-	 * Decide if the given meta key maps to information we will want to import
+	 * Decide if the given meta key maps to information we will want to import.
 	 *
-	 * @param string $key The meta key to check
+	 * @param string $key The meta key to check.
 	 *
-	 * @return string|bool The key if we do want to import, false if not
+	 * @return string|bool The key if we do want to import, false if not.
 	 */
 	public function is_valid_meta_key( $key ) {
-		if ( in_array( $key, $this->invalid_meta_keys ) ) {
+		if ( in_array( $key, $this->invalid_meta_keys, true ) ) {
 			return false;
 		}
 
