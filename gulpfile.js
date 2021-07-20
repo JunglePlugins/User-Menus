@@ -280,14 +280,14 @@ gulp.task(js_admin_watcher);
 gulp.task(js_site_watcher);
 gulp.task(js_other_watcher);
 gulp.task(langpack_watcher);
-gulp.task('js', gulp.parallel(['js_admin', 'js_site', 'js_other']));
-gulp.task('clean_js', gulp.parallel(['clean_js_site', 'clean_js_admin', 'clean_js_other']));
+gulp.task('js', gulp.parallel(['js_admin', /* 'js_site', */ 'js_other']));
+gulp.task('clean_js', gulp.parallel([/* 'clean_js_site', */ 'clean_js_admin', 'clean_js_other']));
 gulp.task('clean_all', gulp.parallel(['clean_js', 'clean_css', 'clean_langpack', 'clean_build', 'clean_package']));
 gulp.task('prebuild', gulp.series('clean_all', gulp.parallel('css', 'js', 'langpack')));
 gulp.task('build', gulp.series('prebuild', build));
 gulp.task('package', gulp.series('clean_package', package));
 gulp.task('release', gulp.series('build', 'package', 'clean_build'));
-gulp.task('js_watcher', gulp.parallel(['js_admin_watcher', 'js_site_watcher', 'js_other_watcher']));
+gulp.task('js_watcher', gulp.parallel(['js_admin_watcher', /* 'js_site_watcher', */ 'js_other_watcher']));
 gulp.task('watch', gulp.parallel(['sass_watcher', 'js_watcher', 'langpack_watcher']));
 gulp.task('default', gulp.series('prebuild', 'watch'));
 
