@@ -108,13 +108,14 @@
         .on('click', '.jpum-user-codes > button', toggle_user_codes)
         .on('click keypress', '.jpum-user-codes li > a', insert_user_code)
         .on('click', reset_user_codes)
-        .on('menu-item-added', refresh_all_items)
-        .ready(refresh_all_items)
-        .ready(disable_register_menu_item);
+        .on('menu-item-added', refresh_all_items);
 
     // Add click event directly to submit buttons to prevent being prevented by default action.
     $('.submit-add-to-menu').click(function () {
         setTimeout(refresh_all_items, 1000);
     });
+
+    $(refresh_all_items)
+    $(disable_register_menu_item)
 
 }(jQuery, jQuery(document)));
