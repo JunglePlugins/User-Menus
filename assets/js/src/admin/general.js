@@ -115,7 +115,7 @@
         setTimeout(refresh_all_items, 1000);
     });
 
-    $(refresh_all_items)
-    $(disable_register_menu_item)
+    $(refresh_all_items);
+    $(disable_register_menu_item);
 
 }(jQuery, jQuery(document)));
