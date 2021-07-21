@@ -40,7 +40,8 @@ class Menus {
 		$excluded = [];
 
 		foreach ( $items as $key => $item ) {
-			$exclude = in_array( $item->menu_item_parent, $excluded, true );
+			// Exclude menu items that are children of excluded items.
+			$exclude = in_array( (int) $item->menu_item_parent, $excluded, true );
 
 			if ( 'logout' === $item->object ) {
 				$exclude = ! $logged_in;
