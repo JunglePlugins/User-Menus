@@ -108,6 +108,10 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 
 == Changelog ==
 
+= Unreleased =
+
+* Fix: Bug due to variable type mismatch which caused children of protected items to be rendered.
+
 = v1.2.6 - 07/20/2021 =
 
 * Improvement: Update Freemius to 2.4.2
