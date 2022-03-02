@@ -6,9 +6,9 @@ Donate link: https://code-atlantic.com/donate/
 Tags: menu, menus, user-menu, logout, nav-menu, nav-menus, user, user-role, user-roles
 Requires at least: 4.6
 Tested up to: 5.8
-Stable tag: 1.2.7
+Stable tag: 1.2.8
 Requires PHP: 5.6
-Freemius: 2.4.2
+Freemius: 2.5.0
 License: GPLv3 or Any Later Version
 
 Show/hide menu items to logged in users, logged out users or specific user roles. Display logged in user details in menu. Add a logout link to menu.
@@ -16,11 +16,11 @@ Show/hide menu items to logged in users, logged out users or specific user roles
 
 == Description ==
 
-User Menus is the perfect plugin for websites which have logged in users.
+User Menus is the perfect plugin for websites that have logged in users.
 
-The plugin gives you more control over your nav menu by allowing you to apply visibility controls to menu items e.g who can see each menu item (everyone, logged out users, logged in users, specific user roles).
+The plugin gives you more control over your nav menu by allowing you to apply visibility controls to menu items e.g., who can see each menu item (everyone, logged out users, logged in users, specific user roles).
 
-It also enables you to display logged in user information in the navigation menu e.g “Hello, John Doe”.
+It also enables you to display logged in user information in the navigation menu e.g., “Hello, John Doe”.
 
 Lastly, the plugin allows you to add login, register, and logout links to your menu.
 
@@ -31,17 +31,17 @@ User Menus allows you to do the following:
 * Display menu items to everyone
 * Display menu items to only logged out users
 * Display menu items to only logged in users
-* Display menu item to users with or without a specific user role.
-* Show a logged in user’s {avatar} in a menu item with custom size option.
+* Display menu items to users with or without a specific user role.
+* Show a logged in user’s {avatar} in a menu item with a custom size option.
 * Show a logged in user’s {username} in a menu item
 * Show a logged in user’s {first_name} in a menu item
 * Show a logged in user’s {last_name} in a menu item
 * Show a logged in user’s {display_name} in a menu item
 * Show a logged in user’s nickname} in a menu item
 * Show a logged in user’s {email} in a menu item
-* Add a logout link to menu (optional redirect settings)
-* Add a register link to menu (optional redirect settings)
-* Add a login link to menu (optional redirect settings)
+* Add a logout link to the menu (optional redirect settings)
+* Add a register link to the menu (optional redirect settings)
+* Add a login link to the menu (optional redirect settings)
 
 ** Includes a custom Menu Importer that will allow migrating User Menus data with the normal menu export/import.
 
@@ -73,9 +73,9 @@ Check out some of our most popular plugins:
 
 * Install User Menus either via the WordPress.org plugin repository or by uploading the files to your server.
 * Activate User Menus.
-* Go to wp-admin > Appearance > Menus and edit your menu
+* Go to wp-admin > Appearance > Menus and edit your menu.
 
-If you need help getting started with User Menus please see [FAQs][faq page] which explains how to use the plugin.
+If you need help getting started with User Menus, please see the [FAQs][faq page] that explain how to use the plugin.
 
 
 [faq page]: https://wordpress.org/plugins/user-menus/faq/ "User Menus FAQ"
@@ -83,12 +83,16 @@ If you need help getting started with User Menus please see [FAQs][faq page] whi
 
 == Frequently Asked Questions ==
 
-= How do I setup this plugin? =
+= How do I set up this plugin? =
 
-* To setup the plugin, go to wp-admin > appearance > menu
-* Once a menu item has been added to the menu, expand the menu item and select which user group (everyone (default option), logged out users, logged in users (all logged in users or select specific user roles) can see the menu item
-* To show a logged in user’s information in a menu item, make a menu item only visible to logged in users and then click the grey arrow button to add a user tag (username, first_name, last_name, nickname, display_name, email) to the menu item label.
-* To add a logout/login link to menu, expand the "User Links" menu item type and then add the logout and/or login link to the menu.
+* To setup the plugin, go to /wp-admin/ > **Appearance** > **Menus**.
+* Add a **menu item** or choose an existing one to edit the User Menus settings.
+* To see the User Menus settings, _expand_ the **menu item** that you chose in the **Menu structure** panel.
+* Select **Everyone**, **Logged Out Users**, or **Logged In Users** from the **Who can see this link?** dropdown.
+* **Logged In Users**: The **Choose which roles can see this link** radio button is selected by default. If no roles are selected, all roles can see the menu item by default. Once a role is checked, then only checked roles can see the menu item.
+* **Logged In Users**: The **Choose which roles won't see this link** radio button is **not** selected by default. If no roles are selected, all roles still have visibility to the menu item by default. Once a role is checked, then only checked roles won't see the menu item.
+* To show a logged in user’s information in a **menu item**, make a **menu item** only visible to logged in users. Click the grey arrow button to add a user tag (username, first_name, last_name, nickname, display_name, email) to the **menu item** label.
+* To add a login or logout link to your menu, expand the **User Links** under the **Add menu items** panel, check **Login** or **Logout**, then click **Add to Menu**.
 
 = Where can I get support? =
 
@@ -107,6 +111,10 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 
 
 == Changelog ==
+
+= v1.2.8 - 03/02/2022 =
+
+* Fix: Bug due to variable type mismatch which caused children of protected items to be rendered.
 
 = v1.2.7 - 07/21/2021 =
 
