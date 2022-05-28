@@ -17,8 +17,16 @@ jobs:
                   php-version: '7.4'
                   tools: composer:v2
 
-            - name: Install ActionScheduler
-              run: composer install --prefer-dist --no-progress --no-dev
+            - name: Setup NPM Version
+              uses: actions/setup-node@v3
+              with:
+                node-version: 10
+
+            - name: Install Dependencies
+              run: npm install && composer install --prefer-dist --no-progress --no-dev
+
+            - name: Build Assets
+              run: npm run build
 
             - name: WordPress.org plugin asset/readme update
               uses: 10up/action-wordpress-plugin-asset-update@stable
