@@ -217,7 +217,21 @@ function clean_package() {
 clean_package.description = "Purge packaged release zip file.";
 
 function build() {
-    return gulp.src(['./**/*.*', '!./build/**', '!./release/**', '!./node_modules/**', '!./gulpfile.js', '!./package.json', '!./package-lock.json', '!./assets/js/src/**'], {allowEmpty: true})
+    return gulp.src([
+            './**/*.*',
+            '!./build/**',
+            '!./release/**',
+            '!./composer.json/**',
+            '!./node_modules/**',
+            '!./vendor/**',
+            '!./gulpfile.js',
+            '!./readme.md',
+            '!./package.json',
+            '!./package-lock.json',
+            '!./assets/js/src/**',
+            '!./assets/sass/**',
+            '!./assets/css/*.map.css',
+        ], {allowEmpty: true})
         .pipe($fn.plumber(plumberErrorHandler))
         .pipe(gulp.dest('build/' + pkg.name));
 }

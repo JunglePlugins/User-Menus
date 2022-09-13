@@ -1,0 +1,14 @@
+{
+    "name": "code-atlantic/user-menus",
+    "version": "1.2.9",
+    "type": "wordpress-plugin",
+    "homepage": "https://code-atlantic.com/",
+    "license": "GPL-2.0-or-later",
+    "support": {
+        "issues": "https://code-atlantic.com/contact"
+    },
+    "minimum-stability": "dev",
+    "scripts": {
+        "tests" : "vendor/bin/phpunit"
+    }
+}

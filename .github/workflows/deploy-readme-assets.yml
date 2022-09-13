@@ -1,0 +1,36 @@
+name: Plugin asset/readme update
+on:
+    push:
+        branches:
+            - master
+jobs:
+    master:
+        name: Push to master
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout master
+              uses: actions/checkout@master
+
+            - name: Setup PHP to use 7.4 with composer v2
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: '7.4'
+                  tools: composer:v2
+
+            - name: Setup NPM Version
+              uses: actions/setup-node@v3
+              with:
+                node-version: 10
+
+            - name: Install Dependencies
+              run: npm install && composer install --prefer-dist --no-progress --no-dev
+
+            - name: Build Assets
+              run: npm run build
+
+            - name: WordPress.org plugin asset/readme update
+              uses: 10up/action-wordpress-plugin-asset-update@stable
+              env:
+                  SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+                  SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+                  SLUG: ${{ secrets.SLUG }}
