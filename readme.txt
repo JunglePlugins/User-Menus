@@ -6,7 +6,7 @@ Donate link: https://code-atlantic.com/donate/
 Tags: menu, menus, user-menu, logout, nav-menu, nav-menus, user, user-role, user-roles
 Requires at least: 4.6
 Tested up to: 5.8
-Stable tag: 1.2.9
+Stable tag: 1.3.0
 Requires PHP: 5.6
 Freemius: 2.5.0
 License: GPLv3 or Any Later Version
@@ -112,7 +112,7 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 
 == Changelog ==
 
-= Unreleased
+= v1.3.0 - 09/13/2022 =
 
 * Tweak: Upgrade freemius sdk to v2.4.5 for PHP 8.1 compatibility.
 
