@@ -112,6 +112,10 @@ Bugs can be reported either in our support forum or preferably on the [User Menu
 
 == Changelog ==
 
+= Unreleased
+
+* Tweak: Upgrade freemius sdk to v2.4.5 for PHP 8.1 compatibility.
+
 = v1.2.9 - 03/02/2022 =
 
 * Tweak: Downgrade freemius sdk to the latest stable (previously version was Release Candidate).
