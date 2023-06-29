@@ -8,7 +8,74 @@
         "issues": "https://code-atlantic.com/contact"
     },
     "minimum-stability": "dev",
+    
+    "require": {
+        "composer/installers": "~2.2.0",
+        "pimple/pimple": "~3.5",
+        "trustedlogin/client": "dev-develop"
+    },
+    "require-dev": {
+        "code-atlantic/coding-standards": "dev-develop",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+        "php": ">=7.3",
+        "phpunit/phpunit": "^6.5",
+        "yoast/phpunit-polyfills": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "UserMenus\\": "classes/"
+        },
+        "classmap": [
+            "vendor-prefixed"
+        ]
+    },
+    "extra": {
+        "strauss": {
+            "target_directory": "/vendor-prefixed/",
+            "namespace_prefix": "UserMenus\\Vendor\\",
+            "classmap_prefix": "UserMenus_",
+            "constant_prefix": "USERMENUS_",
+            "packages": [
+                "pimple/pimple",
+                "trustedlogin/client"
+            ]
+        }
+    },
+    "prefer-stable": true,
     "scripts": {
-        "tests" : "vendor/bin/phpunit"
+        "format": "vendor/bin/phpcbf --standard=.phpcs.xml.dist --report-summary --report-source",
+        "lint": "vendor/bin/phpcs --standard=.phpcs.xml.dist",
+        "install-strauss": [
+            "curl -o strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/latest/download/strauss.phar"
+        ],
+        "clean-vendor-prefix-folder": [
+            "rm -rf vendor-prefixed/**/*"
+        ],
+        "post-install-cmd": [
+            "@clean-vendor-prefix-folder",
+            "@strauss",
+            "composer dump-autoload"
+        ],
+        "post-update-cmd": [
+            "@clean-vendor-prefix-folder",
+            "@strauss",
+            "composer dump-autoload"
+        ],
+        "strauss": [
+            "@install-strauss",
+            "@php strauss.phar"
+        ],
+        "tests": "vendor/bin/phpunit",
+        "test": "phpunit",
+        "test:watch": "phpunit-watcher watch < /dev/tty"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4"
+        },
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "composer/installers": true
+        }
     }
 }
