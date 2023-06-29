@@ -1,0 +1,11 @@
+watch:
+  files:
+    - ./user-menus.php
+  directories:
+    - ./classes/
+    - ./inc/
+    - ./tests/
+
+notifications:
+  passingTests: false
+  failingTests: false
