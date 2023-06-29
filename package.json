@@ -2,30 +2,57 @@
   "name": "user-menus",
   "version": "1.3.1",
   "description": "",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gulp prebuild",
-    "release": "gulp release"
-  },
+  "author": "Daniel Iser",
+  "license": "GPL-3.0",
+  "keywords": [
+    "wordpress",
+    "menus",
+    "restriction",
+    "menu restriction",
+    "menu access",
+    "access control"
+  ],
+  "homepage": "https://wordpress.org/plugins/user-menus/",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/Jungle-Plugins/User-Menus.git"
   },
-  "author": "Daniel Iser",
-  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/Jungle-Plugins/User-Menus/issues"
   },
-  "homepage": "https://wordpress.org/plugins/user-menus/",
   "engines": {
-    "node": "^10.0"
+    "node": "^16"
   },
   "dependencies": {
+    "@user-menus/block-editor": "file:./packages/block-editor",
+    "@user-menus/components": "file:./packages/components",
+    "@user-menus/core-data": "file:./packages/core-data",
+    "@user-menus/data": "file:./packages/data",
+    "@user-menus/fields": "file:./packages/fields",
+    "@user-menus/icons": "file:./packages/icons",
+    "@user-menus/rule-engine": "file:./packages/rule-engine",
+    "@user-menus/settings-page": "file:./packages/settings-page",
+    "@user-menus/utils": "file:./packages/utils",
+    "@user-menus/widget-editor": "file:./packages/widget-editor",
+
     "gulp-clean-css": "^3.10.0",
     "gulp-sane-watch": "^2.0.6",
     "gulp-scss-lint": "^0.7.1"
   },
   "devDependencies": {
+    "@code-atlantic/browserslist-config": "^1.0.1",
+    "@code-atlantic/eslint-plugin": "^1.1.0",
+    "@code-atlantic/stylelint-config": "^1.2.0",
+    "@user-menus/custom-templated-path-webpack-plugin": "file:./packages/custom-templated-path-webpack-plugin",
+    "@user-menus/dependency-extraction-webpack-plugin": "file:./packages/dependency-extraction-webpack-plugin",
+    "@nrwl/nx-cloud": "^16.0.5",
+    "@wordpress/prettier-config": "^2.16.0",
+    "@wordpress/scripts": "^26.4.0",
+    "nx": "15.8.8",
+    "path": "^0.12.7",
+    "prettier": "npm:wp-prettier@2.8.5",
+    "wp-pot-cli": "^1.5.0",
+
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-clean": "^0.4.0",
@@ -54,5 +81,63 @@
     "merge-stream": "^1.0.1",
     "notify-send": "^0.1.2",
     "run-sequence": "^2.2.1"
-  }
+  },
+  "scripts": {
+    "build": "wp-scripts build",
+    "build:tsc": "nx run-many --target=build:tsc",
+    "build:types": "nx run-many --target=build:types",
+    "packages-update-deep": "nx run-many --target=packages-update",
+    "check-engines": "wp-scripts check-engines",
+    "check-licenses": "wp-scripts check-licenses",
+    "format": "wp-scripts format",
+    "format:src": "wp-scripts format ./src",
+    "format:packages": "wp-scripts format ./packages/**/src",
+    "format:php": "wp-env run composer run-script format",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "lint:js:src": "wp-scripts lint-js ./src",
+    "lint:md:docs": "wp-scripts lint-md-docs",
+    "lint:md:js": "wp-scripts lint-md-js",
+    "lint:pkg-json": "wp-scripts lint-pkg-json",
+    "prelint:php": "wp-env run composer \"install --no-interaction\"",
+    "lint:php": "wp-env run composer run-script lint",
+    "packages-update": "wp-scripts packages-update && npx nx run-many --target=packages-update",
+    "plugin-zip": "wp-scripts plugin-zip",
+    "start": "wp-scripts start",
+    "start:hot": "wp-scripts start --hot",
+    "test:e2e": "wp-scripts test-e2e",
+    "test:unit": "wp-scripts test-unit-js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:php": "npm run lint:php && npm run test:unit:php",
+    "test:php:watch": "wp-env run composer run-script test:watch",
+    "pretest:unit:php": "wp-env start",
+    "test:unit:php": "wp-env run phpunit /var/www/html/wp-content/plugins/user-menus/vendor/bin/phpunit -c /var/www/html/wp-content/plugins/user-menus/phpunit.xml.dist --verbose",
+    "translate": "wp-pot --src './classes/**/*.php' --src '!./build/**/*.*' --src '!./vendor/**/*.*' --src '!./dist/**/*.*' --write=true --dest-file 'languages/user-menus.pot' --package 'User Menus' --domain 'user-menus' --last-translator 'Code Atlantic <support@code-atlantic.com>' --team 'Code Atlantic <support@code-atlantic.com>' --bug-report 'https://code-atlantic.com/contact/'",
+    "release": "composer install --no-dev --classmap-authoritative && npm run build && npm run translate && npm run plugin-zip",
+    
+
+    "build": "gulp prebuild",
+    "release": "gulp release"
+  },
+  "babel": {},
+  "workspaces": [
+    "./packages/*"
+  ],
+  "files": [
+    "dist",
+    "classes",
+    "assets/images",
+    "assets/scripts/*.js",
+    "assets/styles/*.css",
+    "inc",
+    "languages",
+    "vendor/autoload.php",
+    "vendor/composer/**/*.php",
+    "vendor-prefixed",
+    "readme.txt",
+    "index.php",
+    "index.php",
+    "user-menus.php",
+    "uninstall.php"
+  ]
 }
