@@ -6,4 +6,57 @@ package-lock.json
 # dist assets
 assets/css/
 assets/js/*.js
+# Composer Dependencies
+/classes/Dependencies/
+
+# Editors
+project.xml
+project.properties
+/nbproject/private/
+.buildpath
+.project
+.settings*
+.idea
+.vscode
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+.sublimelinterrc
+.wp-env.override.json
+
+# Built code
+**/build/
+**/build/**/*
+**/build-types/
+**/build-types/**/*
+node_modules
+release
+dist
+
+# Logs
+/logs
+
+# Composer
+/vendor/
+/vendor-prefixed/
+
+/yarn-error.log
+
+.php_cs.cache
+
+*.tsbuildinfo
+lerna-debug.log
+npm-debug.log
+packages/*/lib
+.idea
+strauss.phar
+*.zip
+.DS_Store
+
+build
+package-lock.json
+
+# dist assets
+assets/css/
+assets/js/*.js
 languages/*.pot
