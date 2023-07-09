@@ -97,7 +97,7 @@ class Blocks extends Controller {
 		 * @return bool
 		 */
 		$should_hide = apply_filters(
-			'content_control/should_hide_block',
+			'user_menus/should_hide_block',
 			false,
 			$controls['rules'],
 			$parsed_block
@@ -161,7 +161,7 @@ class Blocks extends Controller {
 
 			foreach ( $hide_on as $device => $hidden ) {
 				if ( $hidden ) {
-					$classes[] = 'cc-hide-on-' . esc_attr( $device );
+					$classes[] = 'um-hide-on-' . esc_attr( $device );
 				}
 			}
 		}
@@ -204,7 +204,7 @@ class Blocks extends Controller {
 		}
 
 		// Enqueue the styles.
-		wp_enqueue_style( 'content-control-block-styles' );
+		wp_enqueue_style( 'user-menus-block-styles' );
 
 		$class_name = implode( ' ', $classes );
 
