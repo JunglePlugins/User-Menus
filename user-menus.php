@@ -67,9 +67,9 @@ if ( ! function_exists( 'um_fs' ) ) {
 }
 
 /**
- * Class JP_User_Menus
+ * Class CA_User_Menus
  */
-class JP_User_Menus {
+class CA_User_Menus {
 
 	/**
 	 * Plugin Name
@@ -125,7 +125,7 @@ class JP_User_Menus {
 	 *
 	 * @var string
 	 */
-	public static $TEMPLATE_PATH = 'jp/user-menus/';
+	public static $TEMPLATE_PATH = 'ca/user-menus/';
 
 	/**
 	 * Text Domain
@@ -137,7 +137,7 @@ class JP_User_Menus {
 	/**
 	 * Instance of the plugin class
 	 *
-	 * @var         JP_User_Menus $instance The one true JP_User_Menus
+	 * @var         CA_User_Menus $instance The one true CA_User_Menus
 	 */
 	private static $instance;
 
@@ -146,7 +146,7 @@ class JP_User_Menus {
 	 *
 	 * @access      public
 	 * @since       1.0.0
-	 * @return      object self::$instance The one true JP_User_Menus
+	 * @return      object self::$instance The one true CA_User_Menus
 	 */
 	public static function instance() {
 		if ( ! self::$instance ) {
@@ -257,11 +257,11 @@ class JP_User_Menus {
  *
  * @return object
  */
-function jp_user_menus() {
-	return JP_User_Menus::instance();
+function ca_user_menus() {
+	return CA_User_Menus::instance();
 }
 
-jp_user_menus();
+ca_user_menus();
 
 // Ensure plugin & environment compatibility.
-register_activation_hook( __FILE__, [ 'JP_User_Menus', 'activation_check' ] );
+register_activation_hook( __FILE__, [ 'CA_User_Menus', 'activation_check' ] );

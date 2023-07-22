@@ -5,14 +5,14 @@
  * @package User Menus
  */
 
-namespace JP\UM\Menu;
+namespace CA\UM\Menu;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
- * Class JP\UM\Menu\Item
+ * Class CA\UM\Menu\Item
  */
 class Item {
 
@@ -26,7 +26,7 @@ class Item {
 	public static function get_options( $item_id = 0 ) {
 
 		// Fetch all rules for this menu item.
-		$item_options = get_post_meta( $item_id, '_jp_nav_item_options', true );
+		$item_options = get_post_meta( $item_id, '_ca_nav_item_options', true );
 
 		return static::parse_options( $item_options );
 	}

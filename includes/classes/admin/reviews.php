@@ -5,14 +5,14 @@
  * @package User Menus
  */
 
-namespace JP\UM\Admin;
+namespace CA\UM\Admin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
- * Class JP\UM\Admin\Reviews
+ * Class CA\UM\Admin\Reviews
  *
  * This class adds a review request system for your plugin or theme to the WP dashboard.
  *
@@ -32,7 +32,7 @@ class Reviews {
 	 */
 	public static function init() {
 		add_action( 'admin_init', [ __CLASS__, 'hooks' ] );
-		add_action( 'wp_ajax_jpum_review_action', [ __CLASS__, 'ajax_handler' ] );
+		add_action( 'wp_ajax_caum_review_action', [ __CLASS__, 'ajax_handler' ] );
 	}
 
 	/**
@@ -53,11 +53,11 @@ class Reviews {
 	 * @return false|string
 	 */
 	public static function installed_on() {
-		$installed_on = get_option( 'jpum_reviews_installed_on', false );
+		$installed_on = get_option( 'caum_reviews_installed_on', false );
 
 		if ( ! $installed_on ) {
 			$installed_on = current_time( 'mysql' );
-			update_option( 'jpum_reviews_installed_on', $installed_on );
+			update_option( 'caum_reviews_installed_on', $installed_on );
 		}
 
 		return $installed_on;
@@ -68,7 +68,7 @@ class Reviews {
 	 */
 	public static function ajax_handler() {
 		/* phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated */
-		if ( ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['nonce'] ) ), 'jpum_review_action' ) ) {
+		if ( ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['nonce'] ) ), 'caum_review_action' ) ) {
 			wp_send_json_error();
 		}
 
@@ -84,12 +84,12 @@ class Reviews {
 
 			$dismissed_triggers                   = self::dismissed_triggers();
 			$dismissed_triggers[ $args['group'] ] = $args['pri'];
-			update_user_meta( $user_id, '_jpum_reviews_dismissed_triggers', $dismissed_triggers );
-			update_user_meta( $user_id, '_jpum_reviews_last_dismissed', current_time( 'mysql' ) );
+			update_user_meta( $user_id, '_caum_reviews_dismissed_triggers', $dismissed_triggers );
+			update_user_meta( $user_id, '_caum_reviews_last_dismissed', current_time( 'mysql' ) );
 
 			switch ( $args['reason'] ) {
 				case 'maybe_later':
-					update_user_meta( $user_id, '_jpum_reviews_last_dismissed', current_time( 'mysql' ) );
+					update_user_meta( $user_id, '_caum_reviews_last_dismissed', current_time( 'mysql' ) );
 					break;
 				case 'am_now':
 				case 'already_did':
@@ -195,7 +195,7 @@ class Reviews {
 	public static function dismissed_triggers() {
 		$user_id = get_current_user_id();
 
-		$dismissed_triggers = get_user_meta( $user_id, '_jpum_reviews_dismissed_triggers', true );
+		$dismissed_triggers = get_user_meta( $user_id, '_caum_reviews_dismissed_triggers', true );
 
 		if ( ! $dismissed_triggers ) {
 			$dismissed_triggers = [];
@@ -215,12 +215,12 @@ class Reviews {
 		$user_id = get_current_user_id();
 
 		if ( $set ) {
-			update_user_meta( $user_id, '_jpum_reviews_already_did', true );
+			update_user_meta( $user_id, '_caum_reviews_already_did', true );
 
 			return true;
 		}
 
-		return (bool) get_user_meta( $user_id, '_jpum_reviews_already_did', true );
+		return (bool) get_user_meta( $user_id, '_caum_reviews_already_did', true );
 	}
 
 	/**
@@ -262,7 +262,7 @@ class Reviews {
 				],
 			];
 
-			$triggers = apply_filters( 'jpum_reviews_triggers', $triggers );
+			$triggers = apply_filters( 'caum_reviews_triggers', $triggers );
 
 			// Sort Groups.
 			uasort( $triggers, [ __CLASS__, 'rsort_by_priority' ] );
@@ -320,8 +320,8 @@ class Reviews {
 						dataType: "json",
 						url: ajaxurl,
 						data: {
-							action: 'jpum_review_action',
-							nonce: '<?php echo esc_attr( wp_create_nonce( 'jpum_review_action' ) ); ?>',
+							action: 'caum_review_action',
+							nonce: '<?php echo esc_attr( wp_create_nonce( 'caum_review_action' ) ); ?>',
 							group: trigger.group,
 							code: trigger.code,
 							pri: trigger.pri,
@@ -345,10 +345,10 @@ class Reviews {
 				}
 
 				$(document)
-					.on('click', '.jpum-notice .jpum-dismiss', function (event) {
+					.on('click', '.caum-notice .caum-dismiss', function (event) {
 						var $this = $(this),
 							reason = $this.data('reason'),
-							notice = $this.parents('.jpum-notice');
+							notice = $this.parents('.caum-notice');
 
 						notice.fadeTo(100, 0, function () {
 							notice.slideUp(100, function () {
@@ -360,7 +360,7 @@ class Reviews {
 					})
 					.ready(function () {
 						setTimeout(function () {
-							$('.jpum-notice button.notice-dismiss').click(function (event) {
+							$('.caum-notice button.notice-dismiss').click(function (event) {
 								dismiss('maybe_later');
 							});
 						}, 1000);
@@ -369,11 +369,11 @@ class Reviews {
 		</script>
 
 		<style>
-			.jpum-notice p {
+			.caum-notice p {
 				margin-bottom: 0;
 			}
 
-			.jpum-notice img.logo {
+			.caum-notice img.logo {
 				float: right;
 				margin-left: 10px;
 				width: 75px;
@@ -382,10 +382,10 @@ class Reviews {
 			}
 		</style>
 
-		<div class="notice notice-success is-dismissible jpum-notice">
+		<div class="notice notice-success is-dismissible caum-notice">
 
 			<p>
-				<img class="logo" src="<?php echo esc_attr( \JP_User_Menus::$URL ); ?>assets/images/icon-128x128.png" />
+				<img class="logo" src="<?php echo esc_attr( \CA_User_Menus::$URL ); ?>assets/images/icon-128x128.png" />
 				<strong>
 					<?php echo esc_attr( $trigger['message'] ); ?>
 					<br />
@@ -394,17 +394,17 @@ class Reviews {
 			</p>
 			<ul>
 				<li>
-					<a class="jpum-dismiss" target="_blank" href="<?php echo esc_attr( $trigger['link'] ); ?>>" data-reason="am_now">
+					<a class="caum-dismiss" target="_blank" href="<?php echo esc_attr( $trigger['link'] ); ?>>" data-reason="am_now">
 						<strong><?php echo esc_html( __( 'Ok, you deserve it', 'user-menus' ) ); ?></strong>
 					</a>
 				</li>
 				<li>
-					<a href="#" class="jpum-dismiss" data-reason="maybe_later">
+					<a href="#" class="caum-dismiss" data-reason="maybe_later">
 						<?php esc_html( __( 'Nope, maybe later', 'user-menus' ) ); ?>
 					</a>
 				</li>
 				<li>
-					<a href="#" class="jpum-dismiss" data-reason="already_did">
+					<a href="#" class="caum-dismiss" data-reason="already_did">
 						<?php esc_html( __( 'I already did', 'user-menus' ) ); ?>
 					</a>
 				</li>
@@ -440,7 +440,7 @@ class Reviews {
 	public static function last_dismissed() {
 		$user_id = get_current_user_id();
 
-		return get_user_meta( $user_id, '_jpum_reviews_last_dismissed', true );
+		return get_user_meta( $user_id, '_caum_reviews_last_dismissed', true );
 	}
 
 	/**

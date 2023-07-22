@@ -5,16 +5,16 @@
  * @package User Menus
  */
 
-namespace JP\UM\Admin;
+namespace CA\UM\Admin;
 
-use JP\UM\User\Codes;
+use CA\UM\User\Codes;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
- * Class JP\UM\Admin\Menu_Editor
+ * Class CA\UM\Admin\Menu_Editor
  */
 class Menu_Editor {
 
@@ -53,9 +53,8 @@ class Menu_Editor {
 		// Load custom nav menu walker class for custom field compatibility.
 		if ( ! class_exists( 'Walker_Nav_Menu_Edit_Custom_Fields' ) ) {
 			if ( version_compare( $wp_version, '3.6', '>=' ) ) {
-				require_once \JP_User_Menus::$DIR . 'includes/classes/walker/nav-menu-edit-custom-fields.php';
-			} else {
-				require_once \JP_User_Menus::$DIR . 'includes/classes/walker/nav-menu-edit-custom-fields-deprecated.php';
+				require_once \CA_User_Menus::$DIR . 'includes/classes/walker/nav-menu-edit-custom-fields.php';
+			} else CA_User_Menus::$DIR . 'includes/classes/walker/nav-menu-edit-custom-fields-deprecated.php';
 			}
 		}
 
@@ -67,7 +66,7 @@ class Menu_Editor {
 	 * Register metaboxes.
 	 */
 	public static function register_metaboxes() {
-		add_meta_box( 'jp_user_menus', __( 'User Links', 'user-menus' ), [ __CLASS__, 'nav_menu_metabox' ], 'nav-menus', 'side', 'default' );
+		add_meta_box( 'ca_user_menus', __( 'User Links', 'user-menus' ), [ __CLASS__, 'nav_menu_metabox' ], 'nav-menus', 'side', 'default' );
 	}
 
 	/**
@@ -188,8 +187,8 @@ class Menu_Editor {
 		// Use minified libraries if SCRIPT_DEBUG is turned off.
 		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-		wp_enqueue_script( 'jpum-scripts', \JP_User_Menus::$URL . 'assets/js/admin-general' . $suffix . '.js', [ 'jquery', 'underscore' ], \JP_User_Menus::$VER, true );
-		wp_enqueue_style( 'jpum-styles', \JP_User_Menus::$URL . 'assets/css/admin-general' . $suffix . '.css', [ 'dashicons' ], \JP_User_Menus::$VER );
+		wp_enqueue_script( 'caum-scripts', \CA_User_Menus::$URL . 'assets/js/admin-general' . $suffix . '.js', [ 'jquery', 'underscore' ], \CA_User_Menus::$VER, true );
+		wp_enqueue_style( 'caum-styles', \CA_User_Menus::$URL . 'assets/css/admin-general' . $suffix . '.css', [ 'dashicons' ], \CA_User_Menus::$VER );
 	}
 
 	/**
@@ -198,8 +197,8 @@ class Menu_Editor {
 	public static function media_templates() {
 		/* phpcs:disable WordPress.Security.EscapeOutput.UnsafePrintingFunction */
 		?>
-		<script type="text/html" id="tmpl-jpum-user-codes">
-			<div class="jpum-user-codes">
+		<script type="text/html" id="tmpl-caum-user-codes">
+			<div class="caum-user-codes">
 				<button type="button" title="<?php _e( 'Insert User Menu Codes', 'user-menus' ); ?>">
 					<i class="dashicons dashicons-arrow-left"></i>
 				</button>

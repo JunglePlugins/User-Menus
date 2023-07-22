@@ -5,7 +5,7 @@
  * @package User Menus
  */
 
-namespace JP\UM\Admin;
+namespace CA\UM\Admin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 /**
- * Class JP\UM\Admin\Menu_Importer
+ * Class CA\UM\Admin\Menu_Importer
  */
 class Menu_Importer {
 
@@ -34,14 +34,14 @@ class Menu_Importer {
 	 */
 	public static function register_importer() {
 		if ( defined( 'WP_LOAD_IMPORTERS' ) ) {
-			if ( ! class_exists( 'JP\UM\Importer\Menu' ) ) {
-				require_once \JP_User_Menus::$DIR . 'includes/classes/importer/menu.php';
+			if ( ! class_exists( 'CA\UM\Importer\Menu' ) ) {
+				require_once \CA_User_Menus::$DIR . 'includes/classes/importer/menu.php';
 			}
 
-			$importer = new \JP\UM\Importer\Menu();
+			$importer = new \CA\UM\Importer\Menu();
 
 			register_importer(
-				'jpum_nav_menu_importer',
+				'caum_nav_menu_importer',
 				__( 'WP Nav Menus', 'user-menus' ),
 				__( 'Import nav menus and other menu item meta skipped by the default importer', 'user-menus' ),
 				[ $importer, 'dispatch' ]

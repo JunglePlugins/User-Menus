@@ -5,16 +5,16 @@
  * @package User Menus
  */
 
-namespace JP\UM\Menu;
+namespace CA\UM\Menu;
 
-use JP\UM\User\Codes;
+use CA\UM\User\Codes;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
- * Class JP\UM\Menu\Items
+ * Class CA\UM\Menu\Items
  */
 class Items {
 

@@ -5,14 +5,14 @@
  * @package User Menus
  */
 
-namespace JP\UM\Site;
+namespace CA\UM\Site;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
- * Class JP\UM\Site\Menus
+ * Class CA\UM\Site\Menus
  */
 class Menus {
 
@@ -89,7 +89,7 @@ class Menus {
 				}
 			}
 
-			$exclude = apply_filters( 'jpum_should_exclude_item', $exclude, $item );
+			$exclude = apply_filters( 'caum_should_exclude_item', $exclude, $item );
 
 			// unset non-visible item.
 			if ( $exclude ) {

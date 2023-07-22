@@ -5,7 +5,7 @@
  * @package User Menus
  */
 
-namespace JP\UM\Importer;
+namespace CA\UM\Importer;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -32,7 +32,7 @@ if ( ! class_exists( 'WP_Importer' ) ) {
 /* phpcs:disable WordPress.WP.I18n.MissingTranslatorsComment, WordPress.Security.EscapeOutput.OutputNotEscaped */
 
 /**
- * Class JP\UM\Importer\Menu
+ * Class CA\UM\Importer\Menu
  */
 class Menu extends \WP_Importer {
 
@@ -132,7 +132,7 @@ class Menu extends \WP_Importer {
 		echo '<div class="narrow">';
 		echo '<p>' . __( 'Upload your WordPress export (WXR) file and import the Nav Menus and any meta for the Nav Menu items.', 'user-menus' ) . '</p>';
 		echo '<p>' . __( 'Choose a WXR (.xml) file to upload, then click Upload file and import.', 'user-menus' ) . '</p>';
-		wp_import_upload_form( 'admin.php?import=jpum_nav_menu_importer&amp;step=1' );
+		wp_import_upload_form( 'admin.php?import=caum_nav_menu_importer&amp;step=1' );
 		echo '</div>';
 	}
 

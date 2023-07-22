@@ -5,16 +5,16 @@
  * @package User Menus
  */
 
-namespace JP\UM\Admin;
+namespace CA\UM\Admin;
 
-use JP\UM\Menu\Item;
+use CA\UM\Menu\Item;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
- * Class JP\UM\Admin\Menu_Settings
+ * Class CA\UM\Admin\Menu_Settings
  */
 class Menu_Settings {
 
@@ -37,15 +37,15 @@ class Menu_Settings {
 	public static function fields( $item_id, $item, $depth, $args ) {
 		$allowed_user_roles = static::allowed_user_roles();
 
-		wp_nonce_field( 'jpum-menu-editor-nonce', 'jpum-menu-editor-nonce' ); ?>
+		wp_nonce_field( 'caum-menu-editor-nonce', 'caum-menu-editor-nonce' ); ?>
 
 		<p class="nav_item_options-avatar_size  description  description-wide">
 
-			<label for="jp_nav_item_options-avatar_size-<?php echo esc_attr( $item->ID ); ?>">
+			<label for="ca_nav_item_options-avatar_size-<?php echo esc_attr( $item->ID ); ?>">
 
 					<?php echo esc_html( __( 'Avatar Size', 'user-menus' ) ); ?><br />
 
-				<input type="number" min="0" step="1" name="jp_nav_item_options[<?php echo esc_attr( $item->ID ); ?>][avatar_size]" id="jp_nav_item_options-avatar_size-<?php echo esc_attr( $item->ID ); ?>" value="<?php echo esc_attr( $item->avatar_size ); ?>" class="widefat  code" />
+				<input type="number" min="0" step="1" name="ca_nav_item_options[<?php echo esc_attr( $item->ID ); ?>][avatar_size]" id="ca_nav_item_options-avatar_size-<?php echo esc_attr( $item->ID ); ?>" value="<?php echo esc_attr( $item->avatar_size ); ?>" class="widefat  code" />
 
 			</label>
 
@@ -70,11 +70,11 @@ class Menu_Settings {
 
 			<p class="nav_item_options-redirect_type  description  description-wide">
 
-				<label for="jp_nav_item_options-redirect_type-<?php echo esc_attr( $item->ID ); ?>">
+				<label for="ca_nav_item_options-redirect_type-<?php echo esc_attr( $item->ID ); ?>">
 
 					<?php echo esc_html( __( 'Where should users be taken afterwards?', 'user-menus' ) ); ?><br />
 
-					<select name="jp_nav_item_options[<?php echo esc_attr( $item->ID ); ?>][redirect_type]" id="jp_nav_item_options-redirect_type-<?php echo esc_attr( $item->ID ); ?>" class="widefat">
+					<select name="ca_nav_item_options[<?php echo esc_attr( $item->ID ); ?>][redirect_type]" id="ca_nav_item_options-redirect_type-<?php echo esc_attr( $item->ID ); ?>" class="widefat">
 						<?php foreach ( $redirect_types as $option => $label ) : ?>
 							<option value="<?php echo $option; ?>" <?php /*phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ selected( $option, $item->redirect_type ); ?>>
 								<?php echo esc_html( $label ); ?>
@@ -88,11 +88,11 @@ class Menu_Settings {
 
 			<p class="nav_item_options-redirect_url  description  description-wide">
 
-				<label for="jp_nav_item_options-redirect_url-<?php echo esc_attr( $item->ID ); ?>">
+				<label for="ca_nav_item_options-redirect_url-<?php echo esc_attr( $item->ID ); ?>">
 
 					<?php echo esc_html( __( 'Enter a url user should be redirected to', 'user-menus' ) ); ?><br />
 
-					<input type="text" name="jp_nav_item_options[<?php echo esc_attr( $item->ID ); ?>][redirect_url]" id="jp_nav_item_options-redirect_url-<?php echo esc_attr( $item->ID ); ?>" value="<?php echo esc_attr( $item->redirect_url ); ?>" class="widefat  code" />
+					<input type="text" name="ca_nav_item_options[<?php echo esc_attr( $item->ID ); ?>][redirect_url]" id="ca_nav_item_options-redirect_url-<?php echo esc_attr( $item->ID ); ?>" value="<?php echo esc_attr( $item->redirect_url ); ?>" class="widefat  code" />
 
 				</label>
 
@@ -100,13 +100,13 @@ class Menu_Settings {
 
 			<p class="nav_item_options-which_users  description  description-wide">
 
-				<label for="jp_nav_item_options-which_users-<?php echo esc_attr( $item->ID ); ?>">
+				<label for="ca_nav_item_options-which_users-<?php echo esc_attr( $item->ID ); ?>">
 
 					<?php echo esc_html( __( 'Who can see this link?', 'user-menus' ) ); ?>
 
 				</label>
 
-				<select n id="jp_nav_item_options-which_users-<?php echo esc_attr( $item->ID ); ?>" class="widefat" disabled="disabled">
+				<select n id="ca_nav_item_options-which_users-<?php echo esc_attr( $item->ID ); ?>" class="widefat" disabled="disabled">
 					<option>
 					<?php
 					if ( 'logout' === $item->object ) {
@@ -124,11 +124,11 @@ class Menu_Settings {
 
 			<p class="nav_item_options-which_users  description  description-wide">
 
-				<label for="jp_nav_item_options-which_users-<?php echo esc_attr( $item->ID ); ?>">
+				<label for="ca_nav_item_options-which_users-<?php echo esc_attr( $item->ID ); ?>">
 
 					<?php echo esc_html( __( 'Who can see this link?', 'user-menus' ) ); ?><br />
 
-					<select name="jp_nav_item_options[<?php echo esc_attr( $item->ID ); ?>][which_users]" id="jp_nav_item_options-which_users-<?php echo esc_attr( $item->ID ); ?>" class="widefat">
+					<select name="ca_nav_item_options[<?php echo esc_attr( $item->ID ); ?>][which_users]" id="ca_nav_item_options-which_users-<?php echo esc_attr( $item->ID ); ?>" class="widefat">
 							<?php foreach ( $which_users_options as $option => $label ) : ?>
 							<option value="<?php echo $option; ?>" <?php /*phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ selected( $option, $item->which_users ); ?>>
 									<?php echo esc_html( $label ); ?>
@@ -143,14 +143,14 @@ class Menu_Settings {
 			<p class="nav_item_options-can_see  description  description-wide">
 
 				<label>
-					<input type="radio" name="jp_nav_item_options[<?php echo esc_attr( $item->ID ); ?>][can_see]" value="yes" <?php checked( $item->can_see, 'yes' ); ?>/>
+					<input type="radio" name="ca_nav_item_options[<?php echo esc_attr( $item->ID ); ?>][can_see]" value="yes" <?php checked( $item->can_see, 'yes' ); ?>/>
 								<?php echo esc_html( __( 'Choose which roles can see this link', 'user-menus' ) ); ?>
 				</label>
 
 				<br />
 
 				<label>
-					<input type="radio" name="jp_nav_item_options[<?php echo esc_attr( $item->ID ); ?>][can_see]" value="no" <?php checked( $item->can_see, 'no' ); ?>/>
+					<input type="radio" name="ca_nav_item_options[<?php echo esc_attr( $item->ID ); ?>][can_see]" value="no" <?php checked( $item->can_see, 'no' ); ?>/>
 								<?php echo esc_html( __( 'Choose which roles won\'t see this link', 'user-menus' ) ); ?>
 				</label>
 
@@ -159,7 +159,7 @@ class Menu_Settings {
 			<p class="nav_item_options-roles  description  description-wide">
 
 				<?php foreach ( $allowed_user_roles as $option => $label ) : ?>
-					<label> <input type="checkbox" name="jp_nav_item_options[<?php echo esc_attr( $item->ID ); ?>][roles][]" value="<?php echo $option; ?>" <?php /*phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ checked( in_array( esc_attr( $option ), $item->roles, true ), true ); ?>/>
+					<label> <input type="checkbox" name="ca_nav_item_options[<?php echo esc_attr( $item->ID ); ?>][roles][]" value="<?php echo $option; ?>" <?php /*phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ checked( in_array( esc_attr( $option ), $item->roles, true ), true ); ?>/>
 						<?php echo esc_html( $label ); ?>
 					</label>
 				<?php endforeach; ?>
@@ -181,7 +181,7 @@ class Menu_Settings {
 		static $roles;
 
 		if ( ! isset( $roles ) ) {
-			$roles = apply_filters( 'jpum_user_roles', $wp_roles->role_names );
+			$roles = apply_filters( 'caum_user_roles', $wp_roles->role_names );
 
 			if ( ! is_array( $roles ) || empty( $roles ) ) {
 				$roles = [];
@@ -200,12 +200,12 @@ class Menu_Settings {
 	public static function save( $menu_id, $item_id ) {
 		$allowed_roles = static::allowed_user_roles();
 
-		if ( empty( $_POST['jp_nav_item_options'][ $item_id ] ) || ! isset( $_POST['jpum-menu-editor-nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['jpum-menu-editor-nonce'] ) ), 'jpum-menu-editor-nonce' ) ) {
+		if ( empty( $_POST['ca_nav_item_options'][ $item_id ] ) || ! isset( $_POST['caum-menu-editor-nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['caum-menu-editor-nonce'] ) ), 'caum-menu-editor-nonce' ) ) {
 			return;
 		}
 
 		/* phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized */
-		$item_options = Item::parse_options( wp_unslash( $_POST['jp_nav_item_options'][ $item_id ] ) );
+		$item_options = Item::parse_options( wp_unslash( $_POST['ca_nav_item_options'][ $item_id ] ) );
 
 		if ( 'logged_in' === $item_options['which_users'] ) {
 			// Validate chosen roles and remove non-allowed roles.
@@ -222,9 +222,9 @@ class Menu_Settings {
 		$item_options = array_filter( $item_options );
 
 		if ( ! empty( $item_options ) ) {
-			update_post_meta( $item_id, '_jp_nav_item_options', $item_options );
+			update_post_meta( $item_id, '_ca_nav_item_options', $item_options );
 		} else {
-			delete_post_meta( $item_id, '_jp_nav_item_options' );
+			delete_post_meta( $item_id, '_ca_nav_item_options' );
 		}
 	}
 }
