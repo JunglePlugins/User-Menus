@@ -18,42 +18,21 @@
     "type": "git",
     "url": "git+ssh://git@github.com/Jungle-Plugins/User-Menus.git"
   },
+  "author": "Daniel Iser",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/Jungle-Plugins/User-Menus/issues"
   },
+  "homepage": "https://wordpress.org/plugins/user-menus/",
   "engines": {
-    "node": "^16"
+    "node": "^10.0"
   },
   "dependencies": {
-    "@user-menus/block-editor": "file:./packages/block-editor",
-    "@user-menus/components": "file:./packages/components",
-    "@user-menus/core-data": "file:./packages/core-data",
-    "@user-menus/data": "file:./packages/data",
-    "@user-menus/fields": "file:./packages/fields",
-    "@user-menus/icons": "file:./packages/icons",
-    "@user-menus/rule-engine": "file:./packages/rule-engine",
-    "@user-menus/settings-page": "file:./packages/settings-page",
-    "@user-menus/utils": "file:./packages/utils",
-    "@user-menus/widget-editor": "file:./packages/widget-editor",
-
     "gulp-clean-css": "^3.10.0",
     "gulp-sane-watch": "^2.0.6",
     "gulp-scss-lint": "^0.7.1"
   },
   "devDependencies": {
-    "@code-atlantic/browserslist-config": "^1.0.1",
-    "@code-atlantic/eslint-plugin": "^1.1.0",
-    "@code-atlantic/stylelint-config": "^1.2.0",
-    "@user-menus/custom-templated-path-webpack-plugin": "file:./packages/custom-templated-path-webpack-plugin",
-    "@user-menus/dependency-extraction-webpack-plugin": "file:./packages/dependency-extraction-webpack-plugin",
-    "@nrwl/nx-cloud": "^16.0.5",
-    "@wordpress/prettier-config": "^2.16.0",
-    "@wordpress/scripts": "^26.4.0",
-    "nx": "15.8.8",
-    "path": "^0.12.7",
-    "prettier": "npm:wp-prettier@2.8.5",
-    "wp-pot-cli": "^1.5.0",
-
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-clean": "^0.4.0",
