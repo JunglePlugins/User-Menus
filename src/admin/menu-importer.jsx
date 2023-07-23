@@ -5,6 +5,8 @@
 import admin from '../user-menus.php';
 import ca_user_menus from '../user-menus.php';
 
+// namespace CA\UM\Admin;
+
 // if statement to check if 'ABSPATH' exists
 
 /**

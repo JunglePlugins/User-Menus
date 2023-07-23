@@ -5,13 +5,17 @@
 import admin from '../user-menus.php';
 import ca_user_menus from '../user-menus.php';
 
+// namespace CA\UM\Admin;
+
+// use CA\UM\User\Codes;
+
 // if statement to check if 'ABSPATH' exists
 
 export default function Menu_Editor() {
-  const admin = new Admin();
+  // const admin = new Admin();
   
   const init = () => {
-    admin.init();
+    // admin.init();
   }
 
   // const { walker } = {}
