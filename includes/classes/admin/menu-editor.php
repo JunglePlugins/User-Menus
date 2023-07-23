@@ -55,12 +55,10 @@ class Menu_Editor {
 			if ( version_compare( $wp_version, '3.6', '>=' ) ) {
 				require_once \CA_User_Menus::$DIR . 'includes/classes/walker/nav-menu-edit-custom-fields.php';
 			} else CA_User_Menus::$DIR . 'includes/classes/walker/nav-menu-edit-custom-fields-deprecated.php';
-			}
 		}
 
 		return 'Walker_Nav_Menu_Edit_Custom_Fields';
 	}
-
 
 	/**
 	 * Register metaboxes.
