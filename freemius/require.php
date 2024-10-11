@@ -19,6 +19,8 @@
 	require_once WP_FS__DIR_INCLUDES . '/class-fs-logger.php';
 	require_once WP_FS__DIR_INCLUDES . '/debug/debug-bar-start.php';
 
+	require_once WP_FS__DIR_INCLUDES . '/class-fs-garbage-collector.php';
+
 //		require_once WP_FS__DIR_INCLUDES . '/managers/class-fs-abstract-manager.php';
 	require_once WP_FS__DIR_INCLUDES . '/managers/class-fs-option-manager.php';
 	require_once WP_FS__DIR_INCLUDES . '/managers/class-fs-gdpr-manager.php';
@@ -48,6 +50,7 @@
 	require_once WP_FS__DIR_INCLUDES . '/class-fs-api.php';
 	require_once WP_FS__DIR_INCLUDES . '/class-fs-plugin-updater.php';
 	require_once WP_FS__DIR_INCLUDES . '/class-fs-security.php';
+	require_once WP_FS__DIR_INCLUDES . '/managers/class-fs-debug-manager.php';
     require_once WP_FS__DIR_INCLUDES . '/class-fs-options.php';
     require_once WP_FS__DIR_INCLUDES . '/class-fs-storage.php';
     require_once WP_FS__DIR_INCLUDES . '/class-fs-admin-notices.php';
