@@ -5,7 +5,7 @@ Plugin URI:  https://wordpress.org/plugins/user-menus/
 Donate link: https://code-atlantic.com/donate/
 Tags: menu, menus, user-menu, logout, nav-menu, nav-menus, user, user-role, user-roles
 Requires at least: 4.6
-Tested up to: 6.3.0
+Tested up to: 6.6.2
 Stable tag: 1.3.2
 Requires PHP: 5.6
 Freemius: 2.4.5
