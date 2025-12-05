@@ -1,116 +1,106 @@
-=== User Menus - Nav Menu Visibility ===
-Contributors: codeatlantic, danieliser
-Author URI:  https://code-atlantic.com/
-Plugin URI:  https://wordpress.org/plugins/user-menus/
-Donate link: https://code-atlantic.com/donate/
-Tags: menu, menus, user-menu, logout, nav-menu, nav-menus, user, user-role, user-roles
-Requires at least: 4.6
-Tested up to: 6.1
-Stable tag: 1.3.1
-Requires PHP: 5.6
-Freemius: 2.4.5
-License: GPLv3 or Any Later Version
+=== User Menus ===
+Contributors: codeatlantic
+Tags: menu, menus, user-menu, user-menus, logout, nav-menu, nav-menus, user, user-role, user-roles, navigation, visibility, roles, login, user
+Requires at least: 6.0
+Tested up to: 6.4
+Stable tag: 2.0.0
+Requires PHP: 7.4
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Show/hide menu items to logged in users, logged out users or specific user roles. Display logged in user details in menu. Add a logout link to menu.
-
+Show or hide menu items to logged in users, logged out users or specific user roles. Display logged in user details in menu. Add a logout link to menu.
 
 == Description ==
 
-User Menus is the perfect plugin for websites that have logged in users.
+User Menus allows you to control who sees what in your navigation menus with a beautiful, intuitive interface.
 
-The plugin gives you more control over your nav menu by allowing you to apply visibility controls to menu items e.g., who can see each menu item (everyone, logged out users, logged in users, specific user roles).
+User Menus is the perfect plugin for websites that have logged in users and are using non-block based themes.
+
+It gives you more control over your nav menu by allowing you to apply visibility controls to menu items e.g., who can see each menu item (everyone, logged out users, logged in users, specific user roles).
 
 It also enables you to display logged in user information in the navigation menu e.g., “Hello, John Doe”.
 
-Lastly, the plugin allows you to add login, register, and logout links to your menu.
+Lastly, User Menus allows you to add login, register, and logout links to your menu.
 
-= Full Feature List =
+= Features =
 
-User Menus allows you to do the following:
+* **Visibility Control** - Show or hide menu items based on login status
+* **Role-Based Access** - Restrict menu items to specific WordPress user roles
+* **User Codes** - Display dynamic user information in menu titles (avatar, name, email)
+* **Login/Logout Links** - Easy-to-add login, logout, and registration links
+* **Custom Redirects** - Control where users go after login/logout
+* **Modern Interface** - Built with React for a smooth, responsive experience
 
-* Display menu items to everyone
-* Display menu items to only logged out users
-* Display menu items to only logged in users
-* Display menu items to users with or without a specific user role.
-* Show a logged in user’s {avatar} in a menu item with a custom size option.
-* Show a logged in user’s {username} in a menu item
-* Show a logged in user’s {first_name} in a menu item
-* Show a logged in user’s {last_name} in a menu item
-* Show a logged in user’s {display_name} in a menu item
-* Show a logged in user’s nickname} in a menu item
-* Show a logged in user’s {email} in a menu item
-* Add a logout link to the menu (optional redirect settings)
-* Add a register link to the menu (optional redirect settings)
-* Add a login link to the menu (optional redirect settings)
+= How It Works =
 
-** Includes a custom Menu Importer that will allow migrating User Menus data with the normal menu export/import.
+1. Go to Appearance → Menus
+2. Add or edit a menu item
+3. Expand the item to see visibility options
+4. Choose who can see the link: Everyone, Logged In, or Logged Out
+5. For logged-in users, optionally select specific roles
 
-= Created by Code Atlantic =
+= User Codes =
 
-User Menus is built by the [Code Atlantic][codeatlantic] team. We create high-quality WordPress plugins that help you grow your WordPress sites.
+Insert these codes in menu item titles to display dynamic user information:
 
-Check out some of our most popular plugins:
+* `{avatar}` - User's avatar image
+* `{first_name}` - User's first name
+* `{last_name}` - User's last name
+* `{display_name}` - User's display name
+* `{username}` - User's login username
+* `{nickname}` - User's nickname
+* `{email}` - User's email address
+* `{role}` - User's role
 
-* [Popup Maker][popupmaker] - #1 Popup & Marketing Plugin for WordPress
-* [Content Control][contentcontrol] - Restrict Access to Pages and Posts
+You can also add fallback values: `{first_name||Guest}` displays "Guest" for logged-out users.
 
-**Requires WordPress 4.6 and PHP 5.6**
+= User Links =
 
-[codeatlantic]: https://code-atlantic.com "Code Atlantic - High Quality WordPress Plugins"
-
-[popupmaker]: https://wppopupmaker.com "#1 Popup & Marketing Plugin for WordPress"
-
-[contentcontrol]: https://wordpress.org/plugins/content-control/ "Control Who Can Access Content"
+Add login, logout, and registration links from the "User Links" metabox in the menu editor. These links automatically handle visibility (login/register for logged-out users, logout for logged-in users) and support custom redirect URLs.
 
 == Installation ==
 
-= Minimum Requirements =
-
-* WordPress 4.6 or greater
-* PHP version 5.6 or greater
-
-= Installation =
-
-* Install User Menus either via the WordPress.org plugin repository or by uploading the files to your server.
-* Activate User Menus.
-* Go to wp-admin > Appearance > Menus and edit your menu.
-
-If you need help getting started with User Menus, please see the [FAQs][faq page] that explain how to use the plugin.
-
-
-[faq page]: https://wordpress.org/plugins/user-menus/faq/ "User Menus FAQ"
-
+1. Upload the plugin files to `/wp-content/plugins/user-menus/`
+2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Go to Appearance → Menus to start using the visibility controls
 
 == Frequently Asked Questions ==
 
-= How do I set up this plugin? =
+= Does this work with block themes? =
 
-* To setup the plugin, go to /wp-admin/ > **Appearance** > **Menus**.
-* Add a **menu item** or choose an existing one to edit the User Menus settings.
-* To see the User Menus settings, _expand_ the **menu item** that you chose in the **Menu structure** panel.
-* Select **Everyone**, **Logged Out Users**, or **Logged In Users** from the **Who can see this link?** dropdown.
-* **Logged In Users**: The **Choose which roles can see this link** radio button is selected by default. If no roles are selected, all roles can see the menu item by default. Once a role is checked, then only checked roles can see the menu item.
-* **Logged In Users**: The **Choose which roles won't see this link** radio button is **not** selected by default. If no roles are selected, all roles still have visibility to the menu item by default. Once a role is checked, then only checked roles won't see the menu item.
-* To show a logged in user’s information in a **menu item**, make a **menu item** only visible to logged in users. Click the grey arrow button to add a user tag (username, first_name, last_name, nickname, display_name, email) to the **menu item** label.
-* To add a login or logout link to your menu, expand the **User Links** under the **Add menu items** panel, check **Login** or **Logout**, then click **Add to Menu**.
+User Menus is designed for classic themes that use the traditional Appearance → Menus system. Block themes using the Site Editor navigation blocks are not currently supported and can use our Content Control plugin instead.
 
-= Where can I get support? =
+= Can I show a menu item only to administrators? =
 
-If you get stuck, you can ask for help in the [User Menu Plugin Forum](https://wordpress.org/support/plugin/user-menus).
+Yes! Set the visibility to "Logged In Users", then select only the "Administrator" role from the role options.
 
-= Where can I report bugs or contribute to the project? =
+= How do I display the user's name in a menu item? =
 
-Bugs can be reported either in our support forum or preferably on the [User Menu GitHub repository](https://github.com/jungleplugins/user-menus/issues).
+Use the user code `{display_name}` in the menu item title. You can also use `{first_name}`, `{last_name}`, or other codes.
 
+= What happens if a user code is empty? =
+
+You can specify a fallback: `{first_name||Friend}` will display "Friend" if the first name is empty or the user is logged out.
 
 == Screenshots ==
 
-1. Limit menu item visibility based on logged in status, user role etc.
-2. Display user information such as username, first name etc in your menu text.
-3. Quickly insert login/logout links & choose where users will be taken afterwards.
-
+1. Menu item visibility settings
+2. Role selection for logged-in users
+3. User Links metabox with login/logout options
+4. Settings page overview
 
 == Changelog ==
+
+= 2.0.0 =
+
+* Improvement: Complete rebuild with React and responsive interface
+* Fix: Add compatibility for Astra theme.
+* Full compatibility with WordPress 6.0+
+* Remove Freemius
+
+= v1.3.2 - 07/19/2023 =
+
+* Security: Fixes from the freemius library, notice can be seen [here](https://freemius.com/blog/freemius-wordpress-sdk-security-vulnerability/)
 
 = v1.3.1 - 11/04/2022 =
 

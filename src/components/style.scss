@@ -1,0 +1,37 @@
+/**
+ * Shared Components Styles
+ */
+
+.user-menus-visibility-control {
+	.components-select-control,
+	.components-radio-control {
+		margin-bottom: 12px;
+	}
+}
+
+.user-menus-role-selector {
+	.user-menus-role-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		background: #f9f9f9;
+		padding: 12px;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+
+		.components-checkbox-control {
+			flex: 0 0 calc(50% - 4px);
+			margin: 0;
+
+			@media (max-width: 600px) {
+				flex: 0 0 100%;
+			}
+		}
+	}
+}
+
+.user-menus-user-code-dropdown {
+	.components-dropdown__content {
+		min-width: 150px;
+	}
+}

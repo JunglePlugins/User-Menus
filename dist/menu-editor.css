@@ -1,0 +1,203 @@
+/**
+ * User Menus - Menu Editor Styles
+ */
+
+/* Main container */
+.user-menus-fields {
+	margin-top: 10px;
+	padding-top: 10px;
+	border-top: 1px solid #dcdcde;
+}
+
+.user-menus-fields-inner {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+/* Field containers */
+.um-field {
+	margin-bottom: 0;
+}
+
+.um-field .components-base-control {
+	margin-bottom: 0;
+}
+
+.um-field .components-base-control__label {
+	display: block;
+	margin-bottom: 4px;
+	font-weight: 600;
+	font-size: 11px;
+	text-transform: uppercase;
+	color: #1e1e1e;
+}
+
+/* Select controls */
+.um-field .components-select-control__input {
+	min-height: 30px;
+	font-size: 13px;
+}
+
+/* Disabled fields */
+.um-field-disabled {
+	opacity: 0.7;
+}
+
+.um-field-disabled .components-select-control__input {
+	background-color: #f0f0f1;
+	cursor: not-allowed;
+}
+
+.um-field-disabled .description {
+	font-size: 11px;
+	font-style: italic;
+	color: #757575;
+	margin-top: 4px;
+}
+
+/* Radio controls */
+.um-field-can-see .components-radio-control__option {
+	margin-bottom: 4px;
+}
+
+.um-field-can-see .components-radio-control__option label {
+	font-size: 13px;
+}
+
+/* Roles list */
+.um-roles-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	padding: 8px;
+	background: #f9f9f9;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	max-height: 150px;
+	overflow-y: auto;
+}
+
+.um-roles-list .components-checkbox-control__input-container {
+	margin-right: 6px;
+}
+
+.um-roles-list .components-checkbox-control {
+	flex: 0 0 calc(50% - 4px);
+	margin-bottom: 0;
+}
+
+.um-roles-list .components-checkbox-control__label {
+	font-size: 12px;
+}
+
+/* Avatar size field */
+.um-field-avatar-size .components-text-control__input {
+	width: 80px;
+	min-height: 30px;
+}
+
+/* Redirect URL field */
+.um-field-redirect-url .components-text-control__input {
+	min-height: 30px;
+	font-size: 13px;
+}
+
+/* User code button */
+.user-menus-code-btn {
+	position: relative;
+	display: inline-flex;
+	margin-left: auto;
+}
+
+.user-menus-code-btn button {
+	padding: 0 6px;
+	min-height: 24px;
+	line-height: 1;
+}
+
+.user-menus-code-btn .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+}
+
+/* User code dropdown */
+.user-menus-code-dropdown {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	z-index: 100;
+	min-width: 150px;
+	margin: 2px 0 0;
+	padding: 0;
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+	list-style: none;
+}
+
+.user-menus-code-dropdown li {
+	margin: 0;
+	padding: 0;
+}
+
+.user-menus-code-dropdown a {
+	display: block;
+	padding: 8px 12px;
+	color: #1e1e1e;
+	text-decoration: none;
+	font-size: 13px;
+	transition: background-color 0.1s;
+}
+
+.user-menus-code-dropdown a:hover {
+	background-color: #f0f0f1;
+	color: #0073aa;
+}
+
+.user-menus-code-dropdown li:first-child a {
+	border-radius: 4px 4px 0 0;
+}
+
+.user-menus-code-dropdown li:last-child a {
+	border-radius: 0 0 4px 4px;
+}
+
+/* Registration disabled notice in metabox */
+.user-menus-registration-disabled {
+	opacity: 0.7;
+}
+
+.user-menus-registration-disabled li[data-object="register"] {
+	display: none;
+}
+
+/* Metabox info notice */
+#user-menus-div small {
+	display: block;
+	margin-bottom: 10px;
+	padding: 8px;
+	background: #fcf0f1;
+	border-left: 4px solid #dc3232;
+	font-size: 12px;
+}
+
+#user-menus-div small .dashicons {
+	font-size: 14px;
+	width: 14px;
+	height: 14px;
+	vertical-align: text-bottom;
+	margin-right: 4px;
+}
+
+/* WordPress components overrides for menu editor context */
+.menu-item-settings .components-base-control__help {
+	margin-top: 2px;
+	font-size: 11px;
+}
+
+.menu-item-settings .components-input-control__container {
+	width: 100%;
+}

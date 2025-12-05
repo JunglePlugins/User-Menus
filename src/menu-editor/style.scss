@@ -1,0 +1,135 @@
+/**
+ * Menu Editor Styles
+ */
+
+.user-menus-fields {
+	margin-top: 10px;
+	padding-top: 10px;
+	border-top: 1px solid #ddd;
+}
+
+.user-menus-fields-inner {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+
+	.um-field {
+		margin: 0;
+
+		.components-base-control {
+			margin-bottom: 0;
+		}
+
+		.components-base-control__label {
+			font-weight: 600;
+			margin-bottom: 4px;
+		}
+	}
+
+	.um-field-disabled {
+		opacity: 0.7;
+
+		.components-select-control__input {
+			background-color: #f0f0f0;
+		}
+
+		.description {
+			font-style: italic;
+			color: #666;
+			margin-top: 4px;
+		}
+	}
+
+	.um-roles-list {
+		background: #f9f9f9;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+		padding: 10px;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+
+		.components-checkbox-control {
+			margin: 0;
+			flex: 0 0 calc(50% - 4px);
+
+			@media (max-width: 782px) {
+				flex: 0 0 100%;
+			}
+		}
+
+		.components-checkbox-control__label {
+			font-size: 13px;
+		}
+	}
+}
+
+// User code button styles
+.user-menus-code-btn {
+	position: relative;
+	margin-left: 8px;
+
+	button {
+		padding: 2px 6px;
+		min-height: 24px;
+		line-height: 1;
+
+		.dashicons {
+			font-size: 16px;
+			width: 16px;
+			height: 16px;
+		}
+	}
+
+	.user-menus-code-dropdown {
+		position: absolute;
+		top: 100%;
+		right: 0;
+		background: #fff;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+		min-width: 150px;
+		z-index: 100;
+		margin: 0;
+		padding: 4px 0;
+		list-style: none;
+
+		li {
+			margin: 0;
+			padding: 0;
+		}
+
+		a {
+			display: block;
+			padding: 6px 12px;
+			text-decoration: none;
+			color: #1e1e1e;
+
+			&:hover {
+				background: #f0f0f0;
+			}
+		}
+	}
+}
+
+// User Links metabox styles
+#user-menus-links {
+	.registration-disabled {
+		.menu-item-register {
+			opacity: 0.5;
+			pointer-events: none;
+		}
+	}
+}
+
+// Responsive adjustments
+@media (max-width: 782px) {
+	.user-menus-fields-inner {
+		.um-field {
+			.components-base-control__field {
+				margin-bottom: 0;
+			}
+		}
+	}
+}

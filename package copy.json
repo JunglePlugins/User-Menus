@@ -1,0 +1,30 @@
+{
+  "name": "user-menus",
+  "version": "2.0.0",
+  "description": "TypeScript/React-based menu visibility control for WordPress",
+  "main": "index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+    "lint:js": "wp-scripts lint-js",
+    "lint:css": "wp-scripts lint-style",
+    "check-types": "tsc --noEmit",
+    "packages-update": "wp-scripts packages-update"
+  },
+  "author": "Code Atlantic",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "@types/wordpress__components": "^23.0.0",
+    "@types/wordpress__element": "^4.0.0",
+    "@types/wordpress__i18n": "^3.0.0",
+    "@wordpress/scripts": "^27.0.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "@wordpress/api-fetch": "^6.0.0",
+    "@wordpress/components": "^27.0.0",
+    "@wordpress/data": "^9.0.0",
+    "@wordpress/element": "^5.0.0",
+    "@wordpress/i18n": "^4.0.0"
+  }
+}

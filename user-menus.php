@@ -1,267 +1,153 @@
 <?php
+
 /**
- * Plugin Name:  User Menus
- * Plugin URI:   https://wordpress.org/plugins/user-menus/
- * Description:  Quickly customize your menus with a user's name & avatar, or show items based on user role.
- * Version:      1.3.1
- * Author:       Code Atlantic
- * Author URI:   https://code-atlantic.com/
- * License:      GPL2 or later
- * License URI:  https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:  user-menus
+ * Plugin Name: User Menus
+ * Plugin URI: https://code-atlantic.com/
+ * Description: Quickly customize your menus with a user's name & avatar, or show items based on user role.
+ * Version: 2.0.0
+ * Author: Code Atlantic
+ * Author URI: https://code-atlantic.com/
+ * License: GPL2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: user-menus
  *
- * Minimum PHP: 5.6
- * Minimum WP: 4.6
+ * Minimum PHP: 7.4
+ * Minimum WP: 6.0
  *
- * @author      Daniel Iser
- * @package     User Menus
- * @copyright   Copyright (c) 2019, Code Atlantic LLC
- *
- * Prior Work Credits. Big thanks to the following:
- * - No Conflict Nav Menu Walker (Modified) - Nav Menu Roles @helgatheviking
- * - Menu Importer (Modified) - Kathy Darling
+ * @package UserMenus
+ * @author Code Atlantic
+ * @copyright Copyright (c) 2025, Code Atlantic LLC.
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+namespace UserMenus;
 
-if ( ! function_exists( 'um_fs' ) ) {
-	/**
-	 * Create a helper function for easy SDK access.
-	 *
-	 * @return \Freemius
-	 */
-	function um_fs() {
-		global $um_fs;
+defined( 'ABSPATH' ) || exit;
 
-		if ( ! isset( $um_fs ) ) {
-			// Include Freemius SDK.
-			require_once dirname( __FILE__ ) . '/freemius/start.php';
-
-			$um_fs = fs_dynamic_init( [
-				'id'             => '3637',
-				'slug'           => 'user-menus',
-				'type'           => 'plugin',
-				'public_key'     => 'pk_367ac2d0a38c35ef2a78d161fed88',
-				'is_premium'     => false,
-				'has_addons'     => false,
-				'has_paid_plans' => false,
-				'menu'           => [
-					'first-path' => 'plugins.php',
-					'account'    => false,
-					'contact'    => false,
-					'support'    => false,
-				],
-			] );
-		}
-
-		return $um_fs;
-	}
-
-	// Init Freemius.
-	um_fs();
-
-	// Signal that SDK was initiated.
-	do_action( 'um_fs_loaded' );
+/**
+ * Define plugin's global configuration.
+ *
+ * @return array<string,string|bool>
+ */
+function get_plugin_config() {
+	return [
+		'name'          => 'User Menus',
+		'slug'          => 'user-menus',
+		'version'       => '2.0.0',
+		'option_prefix' => 'user_menus',
+		'text_domain'   => 'user-menus',
+		'fullname'      => 'User Menus',
+		'min_php_ver'   => '7.4.0',
+		'min_wp_ver'    => '6.0.0',
+		'file'          => __FILE__,
+		'basename'      => \plugin_basename( __FILE__ ),
+		'url'           => \plugin_dir_url( __FILE__ ),
+		'path'          => __DIR__ . \DIRECTORY_SEPARATOR,
+	];
 }
 
 /**
- * Class JP_User_Menus
+ * Get config or config property.
+ *
+ * @param string|null $key Key of config item to return.
+ *
+ * @return mixed
  */
-class JP_User_Menus {
+function config( $key = null ) {
+	$config = get_plugin_config();
 
-	/**
-	 * Plugin Name
-	 *
-	 * @var string
-	 */
-	public static $NAME = 'User Menus';
-
-	/**
-	 * Plugin Version
-	 *
-	 * @var string
-	 */
-	public static $VER = '1.3.1';
-
-	/**
-	 * Minimum PHP version
-	 *
-	 * @var string
-	 */
-	public static $MIN_PHP_VER = '5.6';
-
-	/**
-	 * Minimum WP version
-	 *
-	 * @var string
-	 */
-	public static $MIN_WP_VER = '4.6';
-
-	/**
-	 * Plugin URL
-	 *
-	 * @var string
-	 */
-	public static $URL = '';
-
-	/**
-	 * Plugin Directory
-	 *
-	 * @var string
-	 */
-	public static $DIR = '';
-
-	/**
-	 * Plugin File
-	 *
-	 * @var string
-	 */
-	public static $FILE = '';
-
-	/**
-	 * Plugin Template Directory
-	 *
-	 * @var string
-	 */
-	public static $TEMPLATE_PATH = 'jp/user-menus/';
-
-	/**
-	 * Text Domain
-	 *
-	 * @var string
-	 */
-	public static $TD = 'user-menus';
-
-	/**
-	 * Instance of the plugin class
-	 *
-	 * @var         JP_User_Menus $instance The one true JP_User_Menus
-	 */
-	private static $instance;
-
-	/**
-	 * Get active instance
-	 *
-	 * @access      public
-	 * @since       1.0.0
-	 * @return      object self::$instance The one true JP_User_Menus
-	 */
-	public static function instance() {
-		if ( ! self::$instance ) {
-			self::$instance = new static();
-			self::$instance->setup_constants();
-
-			add_action( 'plugins_loaded', [ self::$instance, 'load_textdomain' ] );
-
-			self::$instance->includes();
-		}
-
-		return self::$instance;
+	if ( ! isset( $key ) ) {
+		return $config;
 	}
 
-	/**
-	 * Setup plugin constants
-	 *
-	 * @since       1.0.0
-	 */
-	private function setup_constants() {
-		self::$DIR  = self::$instance->plugin_path();
-		self::$URL  = self::$instance->plugin_url();
-		self::$FILE = __FILE__;
-	}
-
-	/**
-	 * Include necessary files
-	 *
-	 * @since       1.0.0
-	 */
-	private function includes() {
-		// Menu Items.
-		require_once self::$DIR . 'includes/classes/menu/item.php';
-		require_once self::$DIR . 'includes/classes/menu/items.php';
-		require_once self::$DIR . 'includes/classes/user/codes.php';
-		if ( is_admin() ) {
-			// Admin Menu Editor.
-			require_once self::$DIR . 'includes/classes/admin/menu-editor.php';
-			require_once self::$DIR . 'includes/classes/admin/menu-settings.php';
-			require_once self::$DIR . 'includes/classes/admin/menu-importer.php';
-			require_once self::$DIR . 'includes/classes/admin/reviews.php';
-		} else {
-			// Site Menu Filter.
-			require_once self::$DIR . 'includes/classes/site/menus.php';
-		}
-	}
-
-	/**
-	 * Get the plugin path.
-	 *
-	 * @return string
-	 */
-	public function plugin_path() {
-		return plugin_dir_path( __FILE__ );
-	}
-
-	/**
-	 * Get the plugin url.
-	 *
-	 * @return string
-	 */
-	public function plugin_url() {
-		return plugins_url( '/', __FILE__ );
-	}
-
-	/**
-	 * Plugin Activation hook function to check for Minimum PHP and WordPress versions
-	 */
-	public static function activation_check() {
-		global $wp_version;
-
-		if ( version_compare( PHP_VERSION, self::$MIN_PHP_VER, '<' ) ) {
-			$flag = 'PHP';
-		} elseif ( version_compare( $wp_version, self::$MIN_WP_VER, '<' ) ) {
-			$flag = 'WordPress';
-		} else {
-			return;
-		}
-
-		$version = 'PHP' === $flag ? self::$MIN_PHP_VER : self::$MIN_WP_VER;
-
-		// Deactivate automatically due to insufficient PHP or WP Version.
-		deactivate_plugins( basename( __FILE__ ) );
-
-		/* translators: 1: Plugin Name, 2: Flagged software (PHP or WP), 3: PHP or WordPress version */
-		$notice = sprintf( __( 'The %4$s %1$s %5$s plugin requires %2$s version %3$s or greater.', 'user-menus' ), self::$NAME, $flag, $version, '<strong>', '</strong>' );
-
-		/* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */
-		wp_die( sprintf( '<p>%s</p>', $notice ), __( 'Plugin Activation Error', 'user-menus' ), [
-			'response'  => 200,
-			'back_link' => true,
-		] );
-	}
-
-	/**
-	 * Internationalization
-	 *
-	 * @since       1.0.0
-	 */
-	public function load_textdomain() {
-		load_plugin_textdomain( 'user-menus' );
-	}
-
+	return isset( $config[ $key ] ) ? $config[ $key ] : false;
 }
 
 /**
- * Globally available function to get plugin instance.
- *
- * @return object
+ * Register autoloader.
  */
-function jp_user_menus() {
-	return JP_User_Menus::instance();
+require_once __DIR__ . '/classes/Plugin/Autoloader.php';
+
+if ( ! Plugin\Autoloader::init( config( 'name' ), config( 'path' ) ) ) {
+	return;
 }
 
-jp_user_menus();
+/**
+ * Check plugin prerequisites.
+ *
+ * @return bool
+ */
+function check_prerequisites() {
+	global $wp_version;
 
-// Ensure plugin & environment compatibility.
-register_activation_hook( __FILE__, [ 'JP_User_Menus', 'activation_check' ] );
+	$errors = [];
+
+	if ( version_compare( PHP_VERSION, config( 'min_php_ver' ), '<' ) ) {
+		$errors[] = sprintf(
+			/* translators: 1: Required PHP version */
+			__( 'User Menus requires PHP version %s or higher.', 'user-menus' ),
+			config( 'min_php_ver' )
+		);
+	}
+
+	if ( version_compare( $wp_version, config( 'min_wp_ver' ), '<' ) ) {
+		$errors[] = sprintf(
+			/* translators: 1: Required WordPress version */
+			__( 'User Menus requires WordPress version %s or higher.', 'user-menus' ),
+			config( 'min_wp_ver' )
+		);
+	}
+
+	if ( ! empty( $errors ) ) {
+		add_action( 'admin_notices', function() use ( $errors ) {
+			foreach ( $errors as $error ) {
+				printf( '<div class="notice notice-error"><p>%s</p></div>', esc_html( $error ) );
+			}
+		} );
+		return false;
+	}
+
+	return true;
+}
+
+add_action(
+	'plugins_loaded',
+	function () {
+		if ( check_prerequisites() ) {
+			plugin_instance();
+		}
+	},
+	11
+);
+
+/**
+ * Initiates and/or retrieves an encapsulated container for the plugin.
+ *
+ * @return \UserMenus\Plugin\Core
+ */
+function plugin_instance() {
+	static $plugin;
+
+	if ( ! $plugin instanceof \UserMenus\Plugin\Core ) {
+		require_once __DIR__ . '/inc/functions.php';
+		$plugin = new Plugin\Core( get_plugin_config() );
+	}
+
+	return $plugin;
+}
+
+/**
+ * Easy access to all plugin services from the container.
+ *
+ * @param string|null $service_or_config Key of service or config to fetch.
+ * @return \UserMenus\Plugin\Core|mixed
+ */
+function plugin( $service_or_config = null ) {
+	if ( ! isset( $service_or_config ) ) {
+		return plugin_instance();
+	}
+
+	return plugin_instance()->get( $service_or_config );
+}
+
+\register_activation_hook( __FILE__, '\UserMenus\Plugin\Install::activate_plugin' );
+\register_deactivation_hook( __FILE__, '\UserMenus\Plugin\Install::deactivate_plugin' );
