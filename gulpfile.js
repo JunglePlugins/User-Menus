@@ -220,7 +220,9 @@ function build() {
     return gulp.src([
             './**/*.*',
             '!./build/**',
+            '!./bin/**',
             '!./release/**',
+            '!./tests/**',
             '!./composer.json/**',
             '!./node_modules/**',
             '!./vendor/**',
