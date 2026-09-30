@@ -29,9 +29,6 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v2
 
-            - name: Remove composer.lock
-              run: rm composer.lock
-
             - name: Validate composer.json
               run: composer validate
 
