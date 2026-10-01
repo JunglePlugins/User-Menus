@@ -4,8 +4,10 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "test:release": "node tests/release-tools.test.js",
     "build": "gulp prebuild",
-    "release": "gulp release"
+    "release": "gulp release",
+    "verify:release-artifact": "node bin/verify-release-artifact.js"
   },
   "repository": {
     "type": "git",
@@ -27,7 +29,7 @@
   },
   "devDependencies": {
     "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^6.0.0",
+    "gulp-autoprefixer": "^10.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-combine-mq": "^0.4.0",
     "gulp-concat": "^2.6.0",
