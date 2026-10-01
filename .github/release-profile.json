@@ -1,0 +1,23 @@
+{
+  "productionBranch": "master",
+  "developmentBranch": "develop",
+  "pluginSlug": "user-menus",
+  "pluginName": "User Menus",
+  "mainFile": "user-menus.php",
+  "versionTagPrefix": "",
+  "versionSources": ["package.json", "user-menus.php", "readme.txt"],
+  "changelogFiles": ["readme.txt"],
+  "artifact": {
+    "root": "user-menus",
+    "requiredPaths": ["user-menus.php", "freemius/start.php"],
+    "forbiddenPrefixes": [".git/", ".github/", ".wordpress-org/", "assets/js/src/", "assets/sass/", "bin/", "build/", "node_modules/", "release/", "tests/", "vendor/"]
+  },
+  "channels": {
+    "github": true,
+    "wordpressOrg": true,
+    "edd": false,
+    "googleDrive": false,
+    "changelogDraft": false,
+    "slack": false
+  }
+}
