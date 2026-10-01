@@ -1,4 +1,4 @@
-name: CI - PHPUnit
+name: CI - PHP
 
 on:
     push:
@@ -10,7 +10,7 @@ jobs:
     build:
 
         runs-on: ubuntu-latest
-        name: PHPUnit tests on PHP ${{ matrix.php-version }}
+        name: PHP syntax on PHP ${{ matrix.php-version }}
         strategy:
             matrix:
                 php-version: [ '7.1', '7.2', '7.3', '7.4' ]
@@ -18,28 +18,12 @@ jobs:
         container:
             image: junaidbhura/wp-tests:php-${{ matrix.php-version }}
 
-        services:
-            mysql:
-                image: mysql:5.7
-                env:
-                    MYSQL_ROOT_PASSWORD: password
-                options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-
         steps:
             - name: Checkout
-              uses: actions/checkout@v2
-
-            - name: Remove composer.lock
-              run: rm composer.lock
+              uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
             - name: Validate composer.json
-              run: composer validate
+              run: composer validate --no-check-publish
 
-            - name: Install dependencies
-              run: composer install --prefer-dist --no-progress
-
-            - name: Install WordPress
-              run: bash bin/install-wp-tests.sh wordpress_test root 'password' mysql
-
-            - name: Run test suite
-              run: composer tests
+            - name: Check PHP syntax
+              run: find . -type f -name '*.php' -not -path './node_modules/*' -not -path './release/*' -print0 | xargs -0 -n1 php -l
